@@ -8,6 +8,7 @@ import Mission from '../components/Mission';
 import Team from '../components/Team';
 import Cta from '../components/Cta';
 import Footer from '../components/Footer';
+import Achievements from '../components/Achievements';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -99,6 +100,10 @@ const About = () => {
         variants={sectionVariants}
       >
         <About2 />
+      </div>
+
+      <div className="">
+        <Achievements />
       </div>
 
       <div

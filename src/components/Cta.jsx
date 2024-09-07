@@ -74,7 +74,7 @@ const Cta = () => {
             variants={buttonVariant}
             onClick={navigateToContact} // Navigate to contact page on click
           >
-            Join as Volunteer
+            Join as a Volunteer
           </motion.button>
         </div>
       </div>

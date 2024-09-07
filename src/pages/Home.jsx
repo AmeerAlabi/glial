@@ -6,6 +6,7 @@ import Services from '../components/Services'
 import Cta from '../components/Cta'
 import Events from '../components/Events'
 import Footer from '../components/Footer'
+import Sponsors from '../components/Sponsors'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
    <Hero />  
    <About /> 
    <Services />
+   <Sponsors />
    <Cta />
    <Events />
    <Footer />

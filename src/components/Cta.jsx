@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import DonateModal from './DonateModal'; // Import the DonateModal component
+import DonateModal from './DonateModal';
+import VolunteerModal from './VolunteerModal'; // Import the VolunteerModal component
 
 const Cta = () => {
-  // Setup the intersection observer
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.2, // Adjust this value based on when you want the animation to trigger
+    threshold: 0.2,
   });
 
-  // Initialize the useNavigate hook
-  const navigate = useNavigate();
-
-  // Modal state for Donate button
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Modal state
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
 
   // Animation variants
   const textVariant = {
@@ -28,19 +25,21 @@ const Cta = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut', delay: 0.2 } },
   };
 
-  // Function to navigate to the contact page
-  const navigateToContact = () => {
-    navigate('/contact');
+  // Modal controls
+  const openDonateModal = () => {
+    setIsDonateModalOpen(true);
   };
 
-  // Function to open the Donate modal
-  const openModal = () => {
-    setIsModalOpen(true);
+  const closeDonateModal = () => {
+    setIsDonateModalOpen(false);
   };
 
-  // Function to close the Donate modal
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const openVolunteerModal = () => {
+    setIsVolunteerModalOpen(true);
+  };
+
+  const closeVolunteerModal = () => {
+    setIsVolunteerModalOpen(false);
   };
 
   return (
@@ -63,16 +62,16 @@ const Cta = () => {
           <motion.button 
             className="h-[45px] w-[180px] bg-[#47b8a6] hover:bg-[#3a978c] rounded-[10px] text-[#17162c] font-[500] flex justify-center items-center transition-colors duration-300"
             variants={buttonVariant}
-            onClick={openModal} // Open modal on click
+            onClick={openDonateModal}
           >
             Donate
           </motion.button>
 
-          {/* Join as Volunteer button to navigate to contact page */}
+          {/* Join as Volunteer button to open volunteer modal */}
           <motion.button 
             className="h-[45px] w-[180px] bg-transparent border-[2px] border-[#47b8a6] hover:bg-[#47b8a6] rounded-[10px] text-white font-[500] flex justify-center items-center transition-colors duration-300"
             variants={buttonVariant}
-            onClick={navigateToContact} // Navigate to contact page on click
+            onClick={openVolunteerModal}
           >
             Join as a Volunteer
           </motion.button>
@@ -80,7 +79,10 @@ const Cta = () => {
       </div>
 
       {/* Donate Modal */}
-      {isModalOpen && <DonateModal isOpen={isModalOpen} onClose={closeModal} />}
+      {isDonateModalOpen && <DonateModal isOpen={isDonateModalOpen} onClose={closeDonateModal} />}
+
+      {/* Volunteer Modal */}
+      {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
     </motion.div>
   );
 };

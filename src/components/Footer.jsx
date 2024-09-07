@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { FaArrowUp } from 'react-icons/fa';
 import logo from '../Assets/Images/logo.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { ref, inView } = useInView({
@@ -45,11 +46,9 @@ const Footer = () => {
           variants={fadeInUp}
         >
           <div className="text-[22px] font-semibold mb-[15px]">Quick Links</div>
-          <a href="#" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">Home</a>
-          <a href="#" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">About Us</a>
-          <a href="#" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">What We Do</a>
-          <a href="#" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">Media</a>
-          <a href="#" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">Contact</a>
+          <Link to="/" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">Home</Link>
+          <Link to="/about" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">About Us</Link>
+          <Link to="/contact" className="text-[16px] hover:text-[#47b8a6] transition-colors duration-300">Contact</Link>
         </motion.div>
 
         {/* Newsletter CTA */}

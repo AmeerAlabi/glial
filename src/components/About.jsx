@@ -1,30 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import pic from '../Assets/Images/mask.png';
-import sponsor from '../Assets/Images/logos.png';
 
 const About = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
   // Intersection Observer for Text and Image Sections
   const { ref: textImageRef, inView: textImageInView } = useInView({
     triggerOnce: false,
     threshold: 0.5,
   });
 
-  // Intersection Observer for Sponsors Section
-  const { ref: sponsorsRef, inView: sponsorsInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8, delay: 0.3 } },
   };
 
   return (
@@ -48,7 +39,11 @@ const About = () => {
               ‍Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
             </span>
           </div>
-          <div className="cursor-pointer w-[146px] h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]">
+          {/* Learn More Button with Navigation */}
+          <div
+            className="cursor-pointer w-[146px] h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]"
+            onClick={() => navigate('/about')} // Navigate to About page
+          >
             Learn more
           </div>
         </motion.div>
@@ -63,30 +58,6 @@ const About = () => {
           <img src={pic} alt="" className="w-full max-w-[400px] rounded-[8px] mx-auto lg:mx-0" />
         </motion.div>
       </div>
-
-      {/* Sponsors Section */}
-      <motion.div
-        className="mt-[100px] px-[20px] lg:px-[100px]"
-        ref={sponsorsRef}
-        initial="hidden"
-        animate={sponsorsInView ? 'visible' : 'hidden'}
-        variants={fadeIn}
-      >
-        <div className="text-[20px] text-[#17162c] font-[500]">Our Sponsors</div>
-        <div className="mt-[20px] flex flex-wrap justify-center lg:justify-start gap-[20px] lg:gap-[100px]">
-          {[...Array(5)].map((_, index) => (
-            <motion.img
-              key={index}
-              src={sponsor}
-              alt="Sponsor Logo"
-              className="w-[120px] h-[30px]"
-              initial="hidden"
-              animate={sponsorsInView ? 'visible' : 'hidden'}
-              variants={fadeInUp}
-            />
-          ))}
-        </div>
-      </motion.div>
     </div>
   );
 };

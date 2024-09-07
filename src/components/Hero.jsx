@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 import pattern from '../Assets/Images/pattern.png';
 import heroImage from '../Assets/Images/coat.jpg';
 import DonateModal from './DonateModal'; // Import the DonateModal component
+import VolunteerModal from './VolunteerModal';
 
 const Hero = () => {
   const { ref, inView } = useInView({
@@ -13,7 +13,8 @@ const Hero = () => {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
+
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -28,10 +29,14 @@ const Hero = () => {
     setIsModalOpen(false);
   };
 
-  // Function to navigate to the contact page
-  const navigateToContact = () => {
-    navigate('/contact'); // Adjust the route path to match your contact page route
+  const openVolunteerModal = () => {
+    setIsVolunteerModalOpen(true);
   };
+
+  const closeVolunteerModal = () => {
+    setIsVolunteerModalOpen(false);
+  };
+
 
   return (
     <div 
@@ -64,6 +69,7 @@ const Hero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
           </p>
           <div className="flex justify-center md:justify-start items-center gap-[30px]">
+            {/* Donate button to open modal */}
             <motion.button
               className="bg-white h-[45px] rounded-[5px] text-[#17162c] font-semibold py-2 px-6 shadow-lg transition duration-300"
               whileHover={{ scale: 1.05 }}
@@ -72,11 +78,13 @@ const Hero = () => {
             >
               Donate
             </motion.button>
+
+            {/* Join as Volunteer button to open the same modal */}
             <motion.button
               className="border-[3px] border-white h-[45px] rounded-[5px] text-white font-semibold py-2 px-2 shadow-lg transition duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={navigateToContact} // Navigate to contact page on click
+              onClick={openVolunteerModal} // Open modal on click
             >
               Join as a volunteer
             </motion.button>
@@ -100,6 +108,9 @@ const Hero = () => {
 
       {/* Donate Modal */}
       <DonateModal isOpen={isModalOpen} onClose={closeModal} />
+
+      {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
+      
     </div>
   );
 };

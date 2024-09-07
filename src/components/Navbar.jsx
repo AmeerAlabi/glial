@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../Assets/Images/logo2.png';
 import DonateModal from './DonateModal'; // Import the DonateModal component
 
@@ -26,9 +27,9 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden lg:flex flex-row justify-center items-center gap-[30px]">
-        <a href="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</a>
-        <a href="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</a>
-        <a href="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</a>
+        <Link to="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</Link>
+        <Link to="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</Link>
+        <Link to="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</Link>
       </div>
 
       {/* Donate Button */}
@@ -47,9 +48,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden z-[50] absolute top-[80px] left-0 w-full bg-white flex flex-col items-center gap-4 py-6 shadow-lg">
-          <a href="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</a>
-          <a href="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</a>
-          <a href="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</a>
+          <Link to="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</Link>
+          <Link to="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</Link>
+          <Link to="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</Link>
           <div
             className="cursor-pointer w-[115px] h-[43px] rounded-[7px] bg-[#17162c] font-[500] text-white flex justify-center items-center"
             onClick={openModal} // Open modal from mobile donate button

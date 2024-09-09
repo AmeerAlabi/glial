@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import DonateModal from './DonateModal';
-import VolunteerModal from './VolunteerModal'; // Import the VolunteerModal component
+import VolunteerModal from './VolunteerModal'; 
+import { MdLabel } from 'react-icons/md';
 
 const Cta = () => {
   const { ref, inView } = useInView({
@@ -10,11 +11,9 @@ const Cta = () => {
     threshold: 0.2,
   });
 
-  // Modal state
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
   const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
 
-  // Animation variants
   const textVariant = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
@@ -25,7 +24,6 @@ const Cta = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut', delay: 0.2 } },
   };
 
-  // Modal controls
   const openDonateModal = () => {
     setIsDonateModalOpen(true);
   };
@@ -58,7 +56,6 @@ const Cta = () => {
           You can contribute to provide a place for children with special needs!
         </motion.div>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-[15px]">
-          {/* Donate button to open modal */}
           <motion.button 
             className="h-[45px] w-[180px] bg-[#47b8a6] hover:bg-[#3a978c] rounded-[10px] text-[#17162c] font-[500] flex justify-center items-center transition-colors duration-300"
             variants={buttonVariant}
@@ -67,7 +64,6 @@ const Cta = () => {
             Donate
           </motion.button>
 
-          {/* Join as Volunteer button to open volunteer modal */}
           <motion.button 
             className="h-[45px] w-[180px] bg-transparent border-[2px] border-[#47b8a6] hover:bg-[#47b8a6] rounded-[10px] text-white font-[500] flex justify-center items-center transition-colors duration-300"
             variants={buttonVariant}
@@ -78,10 +74,8 @@ const Cta = () => {
         </div>
       </div>
 
-      {/* Donate Modal */}
       {isDonateModalOpen && <DonateModal isOpen={isDonateModalOpen} onClose={closeDonateModal} />}
 
-      {/* Volunteer Modal */}
       {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
     </motion.div>
   );

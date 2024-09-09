@@ -39,16 +39,14 @@ const About = () => {
               ‍Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
             </span>
           </div>
-          {/* Learn More Button with Navigation */}
           <div
             className="cursor-pointer w-[146px] h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]"
-            onClick={() => navigate('/about')} // Navigate to About page
+            onClick={() => navigate('/about')}
           >
             Learn more
           </div>
         </motion.div>
 
-        {/* Image Section */}
         <motion.div
           className="w-full lg:w-auto"
           initial="hidden"

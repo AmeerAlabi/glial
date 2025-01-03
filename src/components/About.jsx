@@ -31,13 +31,10 @@ const About = () => {
         >
           <div className="text-[16px] font-[500] text-[#17162c]">KNOW ABOUT US</div>
           <div className="text-[24px] lg:text-[32px] font-[600] text-[#17162c]">
-            We provide a place for children with special needs
+          We Advocate for Brain Health and Support for Those Affected by Traumatic Brain Injuries
           </div>
           <div className="text-[12px] lg:text-[14px] font-[400] text-[#525560]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-            <span className="mt-[30px] block">
-              ‍Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-            </span>
+          The Glial Initiative is a nonprofit founded by two passionate medical students, Mustapha Mubarak and Adedoyin James, with the goal of raising awareness about traumatic brain injuries (TBIs) and their long-term effects. Our organization is dedicated to combating TBIs, including shaken baby syndrome, concussions, and other related injuries, by educating communities, advocating for better healthcare practices, and providing support for those affected.
           </div>
           <div
             className="cursor-pointer w-[146px] h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]"

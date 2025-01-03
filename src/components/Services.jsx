@@ -1,12 +1,12 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import shirt from '../Assets/Images/shirt.png';
+import shirt from '../Assets/Images/shirt.png'; // Replace with the actual image path
 
-const Services = () => {
+const Goals = () => {
   const { ref, inView } = useInView({
     triggerOnce: false, // Animation triggers only once
-    threshold: 0.5, // Trigger when 20% of the component is in view
+    threshold: 0.5, // Trigger when 50% of the component is in view
   });
 
   const fadeInUp = {
@@ -15,8 +15,8 @@ const Services = () => {
   };
 
   return (
-    <div className="w-full bg-[#17162c] md:mt-0 mt-[60px] py-[60px]">
-      <div ref={ref} className="w-[90%] lg:w-[80%] mx-auto flex flex-col lg:flex-row justify-center items-center gap-[40px]">
+    <div ref={ref} className="w-full bg-[#17162c] mt-[60px] py-[60px]">
+      <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col lg:flex-row justify-center items-center gap-[40px]">
         {/* Text Section */}
         <motion.div
           className="w-full lg:w-[50%] flex flex-col gap-[20px]"
@@ -25,55 +25,55 @@ const Services = () => {
           variants={fadeInUp}
         >
           <div className="text-[28px] lg:text-[36px] font-bold text-white">
-            Some services we provide for our children
+            Our Mission: Empowering Change Through Impactful Goals
           </div>
           <div className="text-[16px] font-normal text-white leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+            At The Glial Initiative, we aim to make lasting change by raising awareness and providing essential support to those impacted by traumatic brain injuries. Here's what we strive for:
           </div>
           <div className="flex flex-col gap-[20px]">
-            {/* Card 1 */}
+            {/* Goal 1 */}
             <div className="flex gap-[12px] items-start">
-              <div className="w-6 h-6 bg-white rounded-[8px] mt-[5px]"></div>
+              <div className="w-6 h-6 bg-[#47b8a6] rounded-[8px] mt-[5px]"></div>
               <div>
-                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Family support</div>
+                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Raise Awareness of TBIs</div>
                 <div className="text-[14px] font-normal text-white mt-[4px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+                  Inform communities about traumatic brain injuries and their impact on health, through outreach and educational campaigns.
                 </div>
               </div>
             </div>
-            {/* Card 2 */}
+            {/* Goal 2 */}
             <div className="flex gap-[12px] items-start">
-              <div className="w-6 h-6 bg-white rounded-[8px] mt-[5px]"></div>
+              <div className="w-6 h-6 bg-[#47b8a6] rounded-[8px] mt-[5px]"></div>
               <div>
-                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Health care</div>
+                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Advocate for Better Healthcare</div>
                 <div className="text-[14px] font-normal text-white mt-[4px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+                  Push for policies that ensure better prevention, treatment, and support for individuals with TBIs.
                 </div>
               </div>
             </div>
-            {/* Card 3 */}
+            {/* Goal 3 */}
             <div className="flex gap-[12px] items-start">
-              <div className="w-6 h-6 bg-white rounded-[8px] mt-[5px]"></div>
+              <div className="w-6 h-6 bg-[#47b8a6] rounded-[8px] mt-[5px]"></div>
               <div>
-                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Education support</div>
+                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Support Brain Health & Recovery</div>
                 <div className="text-[14px] font-normal text-white mt-[4px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+                  Provide direct support to those affected by TBIs through resources, rehabilitation, and educational tools.
                 </div>
               </div>
             </div>
-            {/* Card 4 */}
+            {/* Goal 4 */}
             <div className="flex gap-[12px] items-start">
-              <div className="w-6 h-6 bg-white rounded-[8px] mt-[5px]"></div>
+              <div className="w-6 h-6 bg-[#47b8a6] rounded-[8px] mt-[5px]"></div>
               <div>
-                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Psychological support</div>
+                <div className="text-[18px] lg:text-[20px] font-semibold text-white">Foster Community Involvement</div>
                 <div className="text-[14px] font-normal text-white mt-[4px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+                  Engage local communities in raising awareness, starting conversations, and reducing stigma surrounding brain injuries.
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
-        
+
         {/* Image Section */}
         <motion.div
           className="w-full lg:w-[50%] flex justify-center"
@@ -88,4 +88,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Goals;

@@ -7,13 +7,14 @@ import Cta from '../components/Cta'
 import Events from '../components/Events'
 import Footer from '../components/Footer'
 import Sponsors from '../components/Sponsors'
+import Goals from '../components/Services'
 
 const Home = () => {
   return (
     <div>
    <Hero />  
    <About /> 
-   <Services />
+   <Goals />
    <Sponsors />
    <Cta />
    <Events />

@@ -11,14 +11,25 @@ const Events = () => {
 
   const events = [
     {
-      title: 'Children’s Day Celebration',
-      date: 'May 27, 2024',
+      title: 'Cranioguard Mission',
+      date: 'January 22, 2024',
+      description:
+        'We engaged over 30 motorcycle riders and reached out to market men and women on the importance of adhering to road safety practices. Emphasizing helmet use, we shared key insights on preventing traumatic brain and spinal cord injuries.',
       cta: 'Learn More',
     },
     {
-      title: 'Annual Charity Gala',
-      date: 'December 12, 2024',
-      cta: 'Join Us',
+      title: 'World Epilepsy Day Outreach',
+      date: 'February 18, 2024',
+      description:
+        'In partnership with Mission:Brain Ilorin, we conducted outreach across six locations, educating over 1,000 individuals, including young mothers, about epilepsy, seizure management, and dispelling myths surrounding the condition.',
+      cta: 'Read More',
+    },
+    {
+      title: 'Medical Outreach to Secondary Schools',
+      date: 'November 17, 2024',
+      description:
+        'Collaborating with Mission:Brain Ilorin, we visited Ar-Raheem Secondary School, speaking to over 100 students about the medical profession, pathways to medical school, and inspiring the next generation of healthcare leaders.',
+      cta: 'Explore',
     },
   ];
 
@@ -55,10 +66,11 @@ const Events = () => {
             variants={itemVariants}
           >
             <div>
-              <div className="text-[22px] font-semibold mb-[15px]">{event.title}</div>
-              <div className="text-[18px] font-normal text-[#b5b5b5]">{event.date}</div>
+              <div className="text-[22px] font-semibold mb-[10px]">{event.title}</div>
+              <div className="text-[18px] font-normal text-[#b5b5b5] mb-[15px]">{event.date}</div>
+              <p className="text-[16px] text-[#c4c4c4] leading-relaxed">{event.description}</p>
             </div>
-            <button className="mt-[30px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
+            <button className="mt-[20px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
               {event.cta} <FaArrowRight />
             </button>
           </motion.div>

@@ -1,58 +1,61 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import teamImage1 from '../Assets/Images/mb.png'; // Adjust path as necessary
+import teamImage2 from '../Assets/Images/jm.png'; // Adjust path as necessary
+import teamImage3 from '../Assets/Images/aam.png'; // Adjust path as necessary
 import teamImage from '../Assets/Images/team.png'; // Adjust path as necessary
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const teamMembers = [
   {
-    name: 'John Doe',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/johndoe',
-    twitter: 'https://twitter.com/johndoe',
+    name: 'Mubarak Mustapha',
+    image: teamImage1,
+    linkedin: 'https://www.linkedin.com/in/mustapha-mubarak/',
+    twitter: '',
   },
   {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
+    name: 'James Adedoyin',
+    image: teamImage2,
+    linkedin: 'https://www.linkedin.com/in/james-adedoyin',
+    twitter: '',
   },
   {
-    name: 'Jane Smith',
+    name: 'Ameer Alabi',
     image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
+    linkedin: 'https://www.linkedin.com/in/ameer-alabi-9bb852287/',
+    twitter: 'https://x.com/Alman_0401',
   },
   {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
+    name: 'AbdulRahman Amzat',
+    image: teamImage3,
+    linkedin: '',
+    twitter: 'https://x.com/Medic_zat',
   },
-  {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
-  },
-  {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
-  },
-  {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
-  },
-  {
-    name: 'Jane Smith',
-    image: teamImage,
-    linkedin: 'https://www.linkedin.com/in/janesmith',
-    twitter: 'https://twitter.com/janesmith',
-  },
+  // {
+  //   name: 'Jane Smith',
+  //   image: teamImage,
+  //   linkedin: 'https://www.linkedin.com/in/janesmith',
+  //   twitter: 'https://twitter.com/janesmith',
+  // },
+  // {
+  //   name: 'Jane Smith',
+  //   image: teamImage,
+  //   linkedin: 'https://www.linkedin.com/in/janesmith',
+  //   twitter: 'https://twitter.com/janesmith',
+  // },
+  // {
+  //   name: 'Jane Smith',
+  //   image: teamImage,
+  //   linkedin: 'https://www.linkedin.com/in/janesmith',
+  //   twitter: 'https://twitter.com/janesmith',
+  // },
+  // {
+  //   name: 'Jane Smith',
+  //   image: teamImage,
+  //   linkedin: 'https://www.linkedin.com/in/janesmith',
+  //   twitter: 'https://twitter.com/janesmith',
+  // },
   // Add more team members as needed
 ];
 

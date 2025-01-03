@@ -8,6 +8,7 @@ import Team from '../components/Team';
 import Cta from '../components/Cta';
 import Footer from '../components/Footer';
 import Achievements from '../components/Achievements';
+import CollaborationsAndEvents from '../components/Achievements';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -81,7 +82,7 @@ const About = () => {
       </motion.div>
 
       {/* Achievements Section */}
-      {/* <Achievements /> */}
+      <CollaborationsAndEvents />
 
       {/* Team Section */}
       <motion.div

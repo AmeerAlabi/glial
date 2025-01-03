@@ -1,13 +1,19 @@
-import React from 'react';
-import { FaArrowRight } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+'use client'
+
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { ArrowRight } from 'lucide-react'
+import cranioguardImage1 from '../Assets/Images/ev3.jpg'
+import cranioguardImage2 from '../Assets/Images/ev1.jpg'
 
 const Events = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger animation only once
-    threshold: 0.2, // Trigger when 20% of the component is visible
-  });
+    triggerOnce: false,
+    threshold: 0.1,
+  })
+
+  const [hoveredEvent, setHoveredEvent] = useState(null)
 
   const events = [
     {
@@ -16,68 +22,75 @@ const Events = () => {
       description:
         'We engaged over 30 motorcycle riders and reached out to market men and women on the importance of adhering to road safety practices. Emphasizing helmet use, we shared key insights on preventing traumatic brain and spinal cord injuries.',
       cta: 'Learn More',
+      images: [cranioguardImage1, cranioguardImage2],
     },
-    {
-      title: 'World Epilepsy Day Outreach',
-      date: 'February 18, 2024',
-      description:
-        'In partnership with Mission:Brain Ilorin, we conducted outreach across six locations, educating over 1,000 individuals, including young mothers, about epilepsy, seizure management, and dispelling myths surrounding the condition.',
-      cta: 'Read More',
-    },
-    {
-      title: 'Medical Outreach to Secondary Schools',
-      date: 'November 17, 2024',
-      description:
-        'Collaborating with Mission:Brain Ilorin, we visited Ar-Raheem Secondary School, speaking to over 100 students about the medical profession, pathways to medical school, and inspiring the next generation of healthcare leaders.',
-      cta: 'Explore',
-    },
-  ];
+  ]
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 }, // Initial state: hidden and slightly below
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.3 } }, // Final state: visible with smooth transition
-  };
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8, staggerChildren: 0.3 } },
+  }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 }, // Initial state for each item
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Final state for each item
-  };
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }
 
   return (
-    <div className="mt-[100px] lg:mt-[200px] mx-auto w-[90%] lg:w-[1050px]" ref={ref}>
-      <motion.div
-        className="text-[28px] font-bold text-[#17162c] mb-[40px] text-center lg:text-left"
+    <div className="mt-16 lg:mt-32 mx-auto w-11/12 max-w-6xl" ref={ref}>
+      <motion.h2
+        className="text-4xl font-bold text-[#17162c] mb-8 text-center"
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
         Our Events
-      </motion.div>
+      </motion.h2>
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]"
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
         {events.map((event, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col justify-between bg-[#17162c] text-white p-[25px] rounded-[15px] shadow-lg transition-transform transform hover:scale-[1.02] hover:shadow-xl"
-            variants={itemVariants}
-          >
-            <div>
-              <div className="text-[22px] font-semibold mb-[10px]">{event.title}</div>
-              <div className="text-[18px] font-normal text-[#b5b5b5] mb-[15px]">{event.date}</div>
-              <p className="text-[16px] text-[#c4c4c4] leading-relaxed">{event.description}</p>
+          <motion.div key={index} variants={itemVariants}>
+            <div className="mb-8 overflow-hidden bg-white rounded-lg shadow-lg">
+              <div className="relative h-80 overflow-hidden">
+                <motion.img
+                  src={event.images[0]}
+                  alt={`${event.title} - Primary`}
+                  className="w-full h-full object-cover"
+                  initial={{ scale: 1 }}
+                  animate={{ scale: hoveredEvent === index ? 1.05 : 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.img
+                  src={event.images[1]}
+                  alt={`${event.title} - Secondary`}
+                  className="absolute inset-0 w-full h-full object-contain"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredEvent === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-2 text-[#17162c]">{event.title}</h3>
+                <p className="text-gray-600 mb-4">{event.date}</p>
+                <p className="text-gray-700 mb-6">{event.description}</p>
+                <button
+                  className="inline-flex items-center px-4 py-2 bg-[#47b8a6] text-white rounded hover:bg-[#3a978c] transition-colors duration-300"
+                  onMouseEnter={() => setHoveredEvent(index)}
+                  onMouseLeave={() => setHoveredEvent(null)}
+                >
+                  {event.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </div>
             </div>
-            <button className="mt-[20px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
-              {event.cta} <FaArrowRight />
-            </button>
           </motion.div>
         ))}
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default Events;
+export default Events
+

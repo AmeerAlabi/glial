@@ -15,7 +15,6 @@ const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
   const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
 
-
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -37,15 +36,14 @@ const Hero = () => {
     setIsVolunteerModalOpen(false);
   };
 
-
   return (
-    <div 
+    <div
       ref={ref}
-      className='relative bg-[#17162c] z-[40] w-full h-[470px] gap-[50px] flex items-center justify-around' 
-      style={{ 
-        backgroundImage: `url(${pattern})`, 
-        backgroundRepeat: 'no-repeat', 
-        backgroundSize: 'cover', 
+      className="relative bg-[#17162c] z-[40] w-full h-[470px] gap-[50px] flex items-center justify-around"
+      style={{
+        backgroundImage: `url(${pattern})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
@@ -54,7 +52,6 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl px-5">
-        
         {/* Text Section */}
         <motion.div
           className="text-center md:text-left text-white px-5 flex-1"
@@ -63,10 +60,14 @@ const Hero = () => {
           variants={fadeInUp}
         >
           <h1 className="text-[36px] md:text-[48px] lg:text-[60px] font-bold mb-4">
-            GLIAL-INITIATIVE
+            The Glial Initiative
           </h1>
           <p className="mb-6 text-[16px] md:text-[18px] lg:text-[20px] max-w-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+            The Glial Initiative, founded by medical students <strong>Mustapha Mubarak</strong> and{' '}
+            <strong>Adedoyin James</strong>, is dedicated to addressing traumatic brain injuries
+            (TBIs) like shaken baby syndrome and concussions. Our mission is to educate, advocate,
+            and support communities through outreach, awareness, and resource-sharing, bridging
+            knowledge gaps and improving global brain health outcomes.
           </p>
           <div className="flex justify-center md:justify-start items-center gap-[30px]">
             {/* Donate button to open modal */}
@@ -98,9 +99,9 @@ const Hero = () => {
           animate={inView ? 'visible' : 'hidden'}
           variants={fadeInUp}
         >
-          <img 
-            src={heroImage} 
-            alt="Hero" 
+          <img
+            src={heroImage}
+            alt="Hero"
             className="rounded-[10px] w-full max-w-[400px] h-auto object-cover shadow-lg"
           />
         </motion.div>
@@ -110,7 +111,6 @@ const Hero = () => {
       <DonateModal isOpen={isModalOpen} onClose={closeModal} />
 
       {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
-      
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import DonateModal from './DonateModal';
-import VolunteerModal from './VolunteerModal'; 
+import VolunteerModal from './VolunteerModal';
 import { MdLabel } from 'react-icons/md';
 
 const Cta = () => {
@@ -12,7 +12,7 @@ const Cta = () => {
   });
 
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
+  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false);
 
   const textVariant = {
     hidden: { opacity: 0, y: 50 },
@@ -53,15 +53,18 @@ const Cta = () => {
           className="text-white font-bold text-[28px] lg:text-[36px] leading-snug"
           variants={textVariant}
         >
-          You can contribute to provide a place for children with special needs!
+          Help Us Make a Difference in the Lives of Those Affected by Traumatic Brain Injuries
         </motion.div>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-[15px]">
+        <div className="text-white text-[16px] font-normal leading-relaxed">
+          Your contribution and support can play a pivotal role in improving brain health awareness and providing essential services to those affected by TBIs. Join us in advocating for better healthcare, education, and support for individuals living with the effects of traumatic brain injuries.
+        </div>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-[15px] mt-[30px]">
           <motion.button 
             className="h-[45px] w-[180px] bg-[#47b8a6] hover:bg-[#3a978c] rounded-[10px] text-[#17162c] font-[500] flex justify-center items-center transition-colors duration-300"
             variants={buttonVariant}
             onClick={openDonateModal}
           >
-            Donate
+            Donate Today
           </motion.button>
 
           <motion.button 
@@ -69,13 +72,12 @@ const Cta = () => {
             variants={buttonVariant}
             onClick={openVolunteerModal}
           >
-            Join as a Volunteer
+            Become a Volunteer
           </motion.button>
         </div>
       </div>
 
       {isDonateModalOpen && <DonateModal isOpen={isDonateModalOpen} onClose={closeDonateModal} />}
-
       {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
     </motion.div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Modal Component
 const DonateModal = ({ isOpen, onClose }) => {
-  const accountNumber = "123456789"; // Your account number
+  const accountNumber = "17883456789"; // Your account number
 
   // Function to copy account number to clipboard
   const copyToClipboard = () => {

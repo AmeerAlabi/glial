@@ -4,7 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import teamImage1 from '../Assets/Images/mb.png'; // Adjust path as necessary
 import teamImage2 from '../Assets/Images/jm.png'; // Adjust path as necessary
 import teamImage3 from '../Assets/Images/aam.png'; // Adjust path as necessary
-import teamImage from '../Assets/Images/team.png'; // Adjust path as necessary
+import teamImage4 from '../Assets/Images/am.png'; // Adjust path as necessary
+import teamImage5 from '../Assets/Images/bj.png'; // Adjust path as necessary
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const teamMembers = [

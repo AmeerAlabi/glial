@@ -6,14 +6,10 @@ import { useInView } from 'react-intersection-observer'
 import { ArrowRight } from 'lucide-react'
 import cranioguardImage1 from '../Assets/Images/ev3.jpg'
 import cranioguardImage2 from '../Assets/Images/ev1.jpg'
-'use client'
+import { FaArrowRight } from 'react-icons/fa'
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { ArrowRight } from 'lucide-react'
-import cranioguardImage1 from '../Assets/Images/ev3.jpg'
-import cranioguardImage2 from '../Assets/Images/ev1.jpg'
+
+
 
 const Events = () => {
   const { ref, inView } = useInView({
@@ -34,7 +30,7 @@ const Events = () => {
       images: [cranioguardImage1, cranioguardImage2],
     },
   ]
-  ]
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },

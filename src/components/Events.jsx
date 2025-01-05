@@ -94,9 +94,9 @@ const Events = () => {
                 </a>
               </div>
             </div>
-            <button className="mt-[30px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
+            {/* <button className="mt-[30px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
               {event.cta} <FaArrowRight />
-            </button>
+            </button> */}
           </motion.div>
         ))}
       </motion.div>

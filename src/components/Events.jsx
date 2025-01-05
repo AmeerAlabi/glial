@@ -6,6 +6,14 @@ import { useInView } from 'react-intersection-observer'
 import { ArrowRight } from 'lucide-react'
 import cranioguardImage1 from '../Assets/Images/ev3.jpg'
 import cranioguardImage2 from '../Assets/Images/ev1.jpg'
+'use client'
+
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { ArrowRight } from 'lucide-react'
+import cranioguardImage1 from '../Assets/Images/ev3.jpg'
+import cranioguardImage2 from '../Assets/Images/ev1.jpg'
 
 const Events = () => {
   const { ref, inView } = useInView({
@@ -25,6 +33,7 @@ const Events = () => {
       twitterLink: 'https://www.instagram.com/reel/C2VJqmdtze4/?igsh=MWI3OGI5a3F3ZWJ5NA==', // Add Twitter link
       images: [cranioguardImage1, cranioguardImage2],
     },
+  ]
   ]
 
   const containerVariants = {
@@ -89,11 +98,14 @@ const Events = () => {
                 </a>
               </div>
             </div>
+            <button className="mt-[30px] flex items-center gap-[10px] bg-[#47b8a6] text-[#17162c] font-[500] px-[20px] py-[12px] rounded-[10px] hover:bg-[#3a978c] transition-colors duration-300">
+              {event.cta} <FaArrowRight />
+            </button>
           </motion.div>
         ))}
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;

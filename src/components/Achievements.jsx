@@ -3,6 +3,8 @@ import { FaUsers, FaRegCalendarAlt } from 'react-icons/fa';
 
 const CollaborationsAndEvents = () => {
   const collaborationsAndEvents = [
+const CollaborationsAndEvents = () => {
+  const collaborationsAndEvents = [
     {
       icon: <FaUsers size={40} className="text-[#47b8a6]" />,
       title: 'Collaboration with Mission:Brain Ilorin',

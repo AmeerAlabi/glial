@@ -54,14 +54,14 @@ const Partners = () => {
         </motion.div>
 
         {/* Partner 3 */}
-        {/* <motion.div
+         <motion.div
           className="w-[180px] h-[80px] flex justify-center items-center"
           initial="hidden"
           animate={partnersInView ? 'visible' : 'hidden'}
           variants={fadeInUp}
         >
           <img src={partner3} alt="Partner 3" className="w-full h-auto object-contain" />
-        </motion.div> */}
+        </motion.div> 
       </div>
     </motion.div>
   );

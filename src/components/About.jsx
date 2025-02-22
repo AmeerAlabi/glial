@@ -29,15 +29,15 @@ const About = () => {
           animate={textImageInView ? 'visible' : 'hidden'}
           variants={fadeInUp}
         >
-          <div className="text-[16px] font-[500] text-[#17162c]">KNOW ABOUT US</div>
-          <div className="text-[24px] lg:text-[32px] font-[600] text-[#17162c]">
+          <div className="text-[16px] font-[500] md:text-left text-center text-[#17162c]">KNOW ABOUT US</div>
+          <div className="text-[24px] lg:text-[32px]  md:text-left text-center font-[600] text-[#17162c]">
           We Advocate for Brain Health and Support for Those Affected by Traumatic Brain Injuries
           </div>
-          <div className="text-[12px] lg:text-[14px] font-[400] text-[#525560]">
+          <div className="text-[12px]  md:text-left text-center lg:text-[14px] font-[400] text-[#525560]">
           The Glial Initiative is a nonprofit founded by two passionate medical students, Mustapha Mubarak and Adedoyin James, with the goal of raising awareness about traumatic brain injuries (TBIs) and their long-term effects. Our organization is dedicated to combating TBIs, including shaken baby syndrome, concussions, and other related injuries, by educating communities, advocating for better healthcare practices, and providing support for those affected.
           </div>
           <div
-            className="cursor-pointer w-[146px] h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]"
+            className="cursor-pointer  w-[146px] md:mx-0 mx-auto h-[51px] rounded-[5px] bg-[#17162c] flex justify-center items-center text-white font-[500]"
             onClick={() => navigate('/about')}
           >
             Learn more

@@ -50,7 +50,7 @@ const Cta = () => {
     >
       <div className="flex flex-col justify-center items-center gap-[20px] text-center">
         <motion.div 
-          className="text-white font-bold text-[28px] lg:text-[36px] leading-snug"
+          className="text-white font-bold text-[25px] lg:text-[36px] leading-snug"
           variants={textVariant}
         >
           Help Us Make a Difference in the Lives of Those Affected by Traumatic Brain Injuries

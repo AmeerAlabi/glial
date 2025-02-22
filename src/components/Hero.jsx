@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="relative bg-[#17162c] z-[40] w-full h-[470px] gap-[50px] flex items-center justify-around"
+      className="relative bg-[#17162c] z-[40] w-full h-[520px] gap-[50px] flex items-center justify-around"
       style={{
         backgroundImage: `url(${pattern})`,
         backgroundRepeat: 'no-repeat',
@@ -82,7 +82,7 @@ const Hero = () => {
 
             {/* Join as Volunteer button to open the same modal */}
             <motion.button
-              className="border-[3px] border-white h-[45px] rounded-[5px] text-white font-semibold py-2 px-2 shadow-lg transition duration-300"
+              className="border-[3px] border-white h-[45px] rounded-[5px] w-[175px] text-white font-semibold py-2  shadow-lg transition duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={openVolunteerModal} // Open modal on click

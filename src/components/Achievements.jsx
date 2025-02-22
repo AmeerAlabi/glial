@@ -32,8 +32,8 @@ const CollaborationsAndEvents = () => {
             className="bg-[#17162c] rounded-lg shadow-lg p-6 flex flex-col justify-center items-center max-w-sm"
           >
             <div className="mb-4">{event.icon}</div>
-            <h3 className="text-[white] text-xl font-semibold mb-2">{event.title}</h3>
-            <p className="text-white text-opacity-70 text-center mb-4">{event.description}</p>
+            <h3 className="text-[white] md:text-left text-center text-xl font-semibold mb-2">{event.title}</h3>
+            <p className="text-white  text-center text-opacity-70  mb-4">{event.description}</p>
             {event.twitterLink && (
               <a
                 href={event.twitterLink}

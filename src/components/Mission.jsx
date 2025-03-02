@@ -21,7 +21,7 @@ const Mission = () => {
   });
 
   return (
-    <div className="relative mt-[70px] bg-cover bg-center h-[450px] py-[50px]" >
+    <div className="relative  bg-cover bg-center h-[450px] " >
       <div className="absolute inset-0 bg-opacity-80 flex flex-col md:flex-row   justify-center items-center p-[20px] md:p-[50px] text-white gap-[60px]">
         {/* Mission Section */}
         <motion.div

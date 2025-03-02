@@ -18,7 +18,7 @@ const About = () => {
   }
 
   return (
-    <div className="mt-[60px] mb-[50px] w-full bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]">
+    <div className="w-full h-full py-[20px] bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]">
       <div
         className="h-auto max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center px-[20px] lg:px-[50px] py-[50px]"
         ref={sectionRef}

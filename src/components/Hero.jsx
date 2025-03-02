@@ -27,9 +27,9 @@ const Hero = () => {
   }, [])
 
   const stats = [
-    { icon: <Brain className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "5.3M", label: "TBI cases annually" },
-    { icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "176K", label: "Lives impacted" },
-    { icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Community partners" },
+    { icon: <Brain className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "5.3M", label: "TBI cases annually" },
+    { icon: <Heart className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "176K", label: "Lives impacted" },
+    { icon: <Users className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Community partners" },
   ]
 
   const openModal = () => setIsModalOpen(true)
@@ -64,38 +64,38 @@ const Hero = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-12 md:py-0 lg:py-24 w-full">
+      <div className="relative z-10 container md:px-[50px] px-6 py-0 sm:py-12 md:py-0 lg:py-24 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
           {/* Left column - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white space-y-4 sm:space-y-6 w-full lg:w-1/2"
+            className="text-white w-full lg:w-1/2"
           >
             {/* Animated badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex justify-center items-center md:mx-0 mx-auto px-2 sm:px-3 py-1 rounded-full bg-[#47b8a6]/10 backdrop-blur-sm border border-[#47b8a6]/20 mb-2 sm:mb-4"
+              className="inline-flex  items-center md:mx-0 mx-auto px-2 sm:px-3 py-1 rounded-full bg-[#47b8a6]/10 backdrop-blur-sm border border-[#47b8a6]/20 mb-2 sm:mb-4"
             >
               <span className="w-2 h-2 rounded-full bg-[#47b8a6] mr-2 animate-pulse"></span>
               <span className="text-xs sm:text-sm font-medium text-[#47b8a6]">Advocating for Brain Health</span>
             </motion.div>
 
             {/* Main heading with gradient - Responsive font sizes */}
-            <h1 className="text-6xl xs:text-3xl md:text-left sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="block">The Glial</span>
-              <span className="bg-gradient-to-r from-white to-[#47b8a6] bg-clip-text text-transparent">  Initiative</span>
-            </h1>
-
+            <h1 className="text-6xl font-bold leading-snug sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+  <span className="block">The Glial</span>
+  <span className="bg-gradient-to-r from-white to-[#47b8a6] bg-clip-text text-transparent">Initiative</span>
+</h1>
             {/* Description with animated underline */}
             <motion.p
-              className="text-[19px] text-left  sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl"
+              className="text-[19px] md:mb-0 mb-[20px] md:mt-0 mt-[18px] text-left  sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              style={{lineHeight: "1.6"}}
             >
               Founded by medical students{" "}
               <span className="font-semibold relative">
@@ -122,7 +122,7 @@ const Hero = () => {
 
             {/* Animated stats - Adjusted height for mobile */}
             <motion.div
-              className="py-2 sm:py-4"
+              className="py-2 md:mt-0 md:mb-0 mb-[20px] mt-[18px] sm:py-4"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -142,8 +142,8 @@ const Hero = () => {
                         >
                           <div className="p-1.5 sm:p-2 rounded-lg bg-[#47b8a6]/10">{stat.icon}</div>
                           <div>
-                            <div className="text-lg xs:text-xl sm:text-2xl font-bold">{stat.value}</div>
-                            <div className="text-xs sm:text-sm text-white/70">{stat.label}</div>
+                            <div className="text-[24px] xs:text-xl sm:text-2xl font-bold">{stat.value}</div>
+                            <div className="text-[15px] sm:text-sm text-white/70">{stat.label}</div>
                           </div>
                         </motion.div>
                       ),
@@ -168,7 +168,7 @@ const Hero = () => {
 
             {/* CTA buttons - Better mobile layout */}
             <motion.div
-              className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 pt-1 sm:pt-2"
+              className="flex md:mt-0 mt-[20px] flex-wrap gap-2 sm:gap-3 md:gap-4 pt-1 sm:pt-2"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -190,13 +190,13 @@ const Hero = () => {
               </motion.button>
 
               <motion.button
-                className="relative overflow-hidden group border-2 border-[#47b8a6] text-[#47b8a6] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                className="relative  h-[40px] overflow-hidden group border-2 border-[#47b8a6] text-[#47b8a6] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={openVolunteerModal}
               >
                 <motion.span
-                  className="absolute inset-0 bg-[#47b8a6]/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute  inset-0 bg-[#47b8a6]/10 opacity-0 group-hover:opacity-100 transition-opacity"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "0%" }}
                   transition={{ duration: 0.4 }}
@@ -206,7 +206,7 @@ const Hero = () => {
               </motion.button>
 
               <motion.button
-                className="relative overflow-hidden group bg-white text-[#17162c] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                className="relative h-[40px]  overflow-hidden group bg-white text-[#17162c] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => navigate("/infographics")}

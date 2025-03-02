@@ -1,118 +1,337 @@
-import React, { useState } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
-import pattern from '../Assets/Images/pattern.png';
-import heroImage from '../Assets/Images/coat.jpg';
-import DonateModal from './DonateModal'; // Import the DonateModal component
-import VolunteerModal from './VolunteerModal';
+"use client"
+
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Brain, Heart, Users, ChevronRight, Award, BookOpen, Lightbulb } from "lucide-react"
+import DonateModal from "./DonateModal"
+import VolunteerModal from "./VolunteerModal"
+import { useNavigate } from "react-router-dom"
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const navigate = useNavigate()
+
   const { ref, inView } = useInView({
-    triggerOnce: false, // Animation triggers continuously
-    threshold: 0.2, // Trigger when 20% of the component is in view
-  });
+    triggerOnce: false,
+    threshold: 0.1, // Reduced threshold for better mobile triggering
+  })
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
-  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false); // State for volunteer modal
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
+  const stats = [
+    { icon: <Brain className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "5.3M", label: "TBI cases annually" },
+    { icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "176K", label: "Lives impacted" },
+    { icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Community partners" },
+  ]
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const openVolunteerModal = () => {
-    setIsVolunteerModalOpen(true);
-  };
-
-  const closeVolunteerModal = () => {
-    setIsVolunteerModalOpen(false);
-  };
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
+  const openVolunteerModal = () => setIsVolunteerModalOpen(true)
+  const closeVolunteerModal = () => setIsVolunteerModalOpen(false)
 
   return (
-    <div
-      ref={ref}
-      className="relative bg-[#17162c] z-[40] w-full h-[520px] gap-[50px] flex items-center justify-around"
-      style={{
-        backgroundImage: `url(${pattern})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl px-5">
-        {/* Text Section */}
-        <motion.div
-          className="text-center md:text-left text-white px-5 flex-1"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={fadeInUp}
-        >
-          <h1 className="text-[36px] md:text-[48px] lg:text-[60px] font-bold mb-4">
-            The Glial Initiative
-          </h1>
-          <p className="mb-6 text-[16px] md:text-[18px] lg:text-[20px] max-w-xl">
-            The Glial Initiative, founded by medical students <strong>Mustapha Mubarak</strong> and{' '}
-            <strong>Adedoyin James</strong>, is dedicated to addressing traumatic brain injuries
-            (TBIs) like shaken baby syndrome and concussions. Our mission is to educate, advocate,
-            and support communities through outreach, awareness, and resource-sharing, bridging
-            knowledge gaps and improving global brain health outcomes.
-          </p>
-          <div className="flex justify-center md:justify-start items-center gap-[30px]">
-            {/* Donate button to open modal */}
-            <motion.button
-              className="bg-white h-[45px] rounded-[5px] text-[#17162c] font-semibold py-2 px-6 shadow-lg transition duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={openModal} // Open modal on click
-            >
-              Donate
-            </motion.button>
-
-            {/* Join as Volunteer button to open the same modal */}
-            <motion.button
-              className="border-[3px] border-white h-[45px] rounded-[5px] w-[175px] text-white font-semibold py-2  shadow-lg transition duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={openVolunteerModal} // Open modal on click
-            >
-              Join as a volunteer
-            </motion.button>
-          </div>
-        </motion.div>
-
-        {/* Image Section - hidden on mobile */}
-        <motion.div
-          className="hidden md:block mt-8 md:mt-0 md:ml-10 flex-1 flex justify-center"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={fadeInUp}
-        >
-          <img
-            src={heroImage}
-            alt="Hero"
-            className="rounded-[10px] w-full max-w-[400px] h-auto object-cover shadow-lg"
+    <div ref={ref} className="relative overflow-hidden bg-[#17162c] min-h-screen w-full z-40 flex items-center">
+      {/* Animated background neurons - Reduced count for mobile */}
+      <div className="absolute inset-0 opacity-20">
+        {Array.from({ length: window.innerWidth < 768 ? 10 : 20 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-[#47b8a6] rounded-full"
+            initial={{
+              x: Math.random() * 100 + "%",
+              y: Math.random() * 100 + "%",
+              opacity: 0.3,
+            }}
+            animate={{
+              opacity: [0.2, 0.5, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 5,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+            }}
           />
-        </motion.div>
+        ))}
       </div>
 
-      {/* Donate Modal */}
+      {/* Main content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-12 md:py-0 lg:py-24 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
+          {/* Left column - Text content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white space-y-4 sm:space-y-6 w-full lg:w-1/2"
+          >
+            {/* Animated badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex justify-center items-center md:mx-0 mx-auto px-2 sm:px-3 py-1 rounded-full bg-[#47b8a6]/10 backdrop-blur-sm border border-[#47b8a6]/20 mb-2 sm:mb-4"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#47b8a6] mr-2 animate-pulse"></span>
+              <span className="text-xs sm:text-sm font-medium text-[#47b8a6]">Advocating for Brain Health</span>
+            </motion.div>
+
+            {/* Main heading with gradient - Responsive font sizes */}
+            <h1 className="text-6xl xs:text-3xl md:text-left sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="block">The Glial</span>
+              <span className="bg-gradient-to-r from-white to-[#47b8a6] bg-clip-text text-transparent">  Initiative</span>
+            </h1>
+
+            {/* Description with animated underline */}
+            <motion.p
+              className="text-[19px] text-left  sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Founded by medical students{" "}
+              <span className="font-semibold relative">
+                Mustapha Mubarak
+                <motion.span
+                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#47b8a6]"
+                  initial={{ width: 0 }}
+                  animate={inView ? { width: "100%" } : { width: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2 }}
+                />
+              </span>{" "}
+              and{" "}
+              <span className="font-semibold relative">
+                Adedoyin James
+                <motion.span
+                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#47b8a6]"
+                  initial={{ width: 0 }}
+                  animate={inView ? { width: "100%" } : { width: 0 }}
+                  transition={{ duration: 0.4, delay: 1.4 }}
+                />
+              </span>
+              , dedicated to addressing traumatic brain injuries through education, advocacy, and community support.
+            </motion.p>
+
+            {/* Animated stats - Adjusted height for mobile */}
+            <motion.div
+              className="py-2 sm:py-4"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <div className="relative h-14 xs:h-16 sm:h-20 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  {stats.map(
+                    (stat, index) =>
+                      activeIndex === index && (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.5 }}
+                          className="absolute inset-0 flex items-center gap-3 sm:gap-4"
+                        >
+                          <div className="p-1.5 sm:p-2 rounded-lg bg-[#47b8a6]/10">{stat.icon}</div>
+                          <div>
+                            <div className="text-lg xs:text-xl sm:text-2xl font-bold">{stat.value}</div>
+                            <div className="text-xs sm:text-sm text-white/70">{stat.label}</div>
+                          </div>
+                        </motion.div>
+                      ),
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Indicator dots */}
+              <div className="flex gap-2 mt-1 sm:mt-2">
+                {stats.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all ${
+                      activeIndex === index ? "bg-[#47b8a6] w-4 sm:w-6" : "bg-white/30"
+                    }`}
+                    aria-label={`View stat ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+
+            {/* CTA buttons - Better mobile layout */}
+            <motion.div
+              className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 pt-1 sm:pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <motion.button
+                className="relative overflow-hidden group bg-[#47b8a6] text-white font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={openModal}
+              >
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-[#47b8a6] to-[#3a9485] opacity-0 group-hover:opacity-100 transition-opacity"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  transition={{ duration: 0.4 }}
+                />
+                <Heart className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+                <span className="relative z-10">Donate Now</span>
+              </motion.button>
+
+              <motion.button
+                className="relative overflow-hidden group border-2 border-[#47b8a6] text-[#47b8a6] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={openVolunteerModal}
+              >
+                <motion.span
+                  className="absolute inset-0 bg-[#47b8a6]/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  transition={{ duration: 0.4 }}
+                />
+                <Users className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+                <span className="relative z-10">Join as Volunteer</span>
+              </motion.button>
+
+              <motion.button
+                className="relative overflow-hidden group bg-white text-[#17162c] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/infographics")}
+              >
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  transition={{ duration: 0.4 }}
+                />
+                <ChevronRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+                <span className="relative z-10">Explore Resources</span>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right column - Animated Neuron Icon with Badges - Better positioning for different screens */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md hidden lg:w-1/2 h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] md:flex items-center justify-center relative mt-4 lg:mt-0"
+          >
+            <svg viewBox="0 0 200 200" className="w-full h-full max-w-[200px] xs:max-w-[250px] sm:max-w-[300px] md:max-w-[350px]">
+              <motion.path
+                d="M100 20 C 80 40, 20 40, 20 100 S 80 160, 100 180"
+                fill="none"
+                stroke="#47b8a6"
+                strokeWidth="4"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+              <motion.path
+                d="M100 20 C 120 40, 180 40, 180 100 S 120 160, 100 180"
+                fill="none"
+                stroke="#47b8a6"
+                strokeWidth="4"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
+              />
+              <motion.circle
+                cx="100"
+                cy="100"
+                r="10"
+                fill="#47b8a6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
+              />
+              {[0, 60, 120, 180, 240, 300].map((angle, index) => (
+                <motion.circle
+                  key={index}
+                  cx={100 + 60 * Math.cos((angle * Math.PI) / 180)}
+                  cy={100 + 60 * Math.sin((angle * Math.PI) / 180)}
+                  r="6"
+                  fill="#47b8a6"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [0, 1.2, 1] }}
+                  transition={{ duration: 0.5, delay: 2 + index * 0.1 }}
+                />
+              ))}
+            </svg>
+
+            {/* Badges with responsive positioning */}
+            <motion.div
+              className="absolute top-0 left-0 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg flex items-center gap-1.5 sm:gap-2"
+              initial={{ opacity: 0, y: -20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, delay: 1.5 }}
+            >
+              <Award className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+              <span className="text-xs sm:text-sm font-medium text-white">Top-rated NGO</span>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-0 left-1/4 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg flex items-center gap-1.5 sm:gap-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 1.7 }}
+            >
+              <BookOpen className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+              <span className="text-xs sm:text-sm font-medium text-white">100+ Research Papers</span>
+            </motion.div>
+
+            <motion.div
+              className="absolute top-1/4 right-0 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg flex items-center gap-1.5 sm:gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, delay: 1.9 }}
+            >
+              <Lightbulb className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+              <span className="text-xs sm:text-sm font-medium text-white">Innovative Approaches</span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Modals */}
       <DonateModal isOpen={isModalOpen} onClose={closeModal} />
-
       {isVolunteerModalOpen && <VolunteerModal isOpen={isVolunteerModalOpen} onClose={closeVolunteerModal} />}
-    </div>
-  );
-};
 
-export default Hero;
+      {/* Mobile Badges - Better spacing and sizing */}
+      <motion.div
+        className="lg:hidden mt-4 sm:mt-6 hidden md:block md:mt-8 space-y-2 sm:space-y-3 px-4 pb-6 sm:pb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg">
+          <Award className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+          <span className="text-xs sm:text-sm font-medium text-white">Top-rated NGO</span>
+        </div>
+        <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg">
+          <BookOpen className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+          <span className="text-xs sm:text-sm font-medium text-white">100+ Research Papers</span>
+        </div>
+        <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 bg-[#47b8a6]/10 backdrop-blur-sm rounded-lg">
+          <Lightbulb className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
+          <span className="text-xs sm:text-sm font-medium text-white">Innovative Approaches</span>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+export default Hero

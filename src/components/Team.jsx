@@ -107,12 +107,12 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              className="relative group"
+              className="relative group h-full"
               variants={itemVariants}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white">
+              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white h-full flex flex-col">
                 {/* Background pattern */}
                 <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-[#17162c] to-[#47b8a6] opacity-10 z-0"></div>
 
@@ -128,12 +128,15 @@ const Team = () => {
                 </div>
 
                 {/* Member info */}
-                <div className="p-6 text-center">
+                <div className="p-6 text-center flex-grow flex flex-col">
                   <h3 className="text-xl font-bold text-[#17162c] mb-1">{member.name}</h3>
                   <p className="text-[#47b8a6] font-medium text-sm mb-4">{member.role}</p>
 
-                  {/* Social links */}
-                  <div className="flex justify-center space-x-4">
+                  {/* Spacer to push social links to bottom */}
+                  <div className="flex-grow"></div>
+
+                  {/* Social links - always same height regardless of content */}
+                  <div className="flex justify-center space-x-4 h-8">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
@@ -154,18 +157,20 @@ const Team = () => {
                         <Twitter size={16} />
                       </a>
                     )}
+                    {/* Add empty placeholder if no social links to maintain height */}
+                    {!member.linkedin && !member.twitter && <div className="w-8 h-8"></div>}
                   </div>
                 </div>
 
                 {/* Hover effect */}
-                <motion.div
+                {/* <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-[#17162c] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end justify-center pb-6"
                   whileHover={{ opacity: 0.7 }}
                 >
                   <span className="text-white font-medium flex items-center gap-2">
                     View Profile <ExternalLink size={14} />
                   </span>
-                </motion.div>
+                </motion.div> */}
               </div>
             </motion.div>
           ))}
@@ -177,10 +182,10 @@ const Team = () => {
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <p className="text-gray-600 mb-4">Interested in joining our mission?</p>
+          {/* <p className="text-gray-600 mb-4">Interested in joining our mission?</p>
           <button className="px-6 py-3 bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 font-medium">
             Join Our Team
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </div>

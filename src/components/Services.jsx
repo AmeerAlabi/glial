@@ -66,7 +66,7 @@ const Goals = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.2 * index }}
               >
-                <div className="w-12 h-12 p-3 bg-[#47b8a6] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 p-2  bg-[#47b8a6] rounded-full flex items-center justify-center">
                   <goal.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -80,7 +80,7 @@ const Goals = () => {
 
         {/* Animated Icon Section */}
         <motion.div
-          className="w-full lg:w-[45%] flex justify-center items-center"
+          className="w-full md:flex lg:w-[45%] hidden justify-center items-center"
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={fadeInUp}

@@ -1,120 +1,191 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import teamImage1 from '../Assets/Images/mb.png'; // Adjust path as necessary
-import teamImage2 from '../Assets/Images/jm.png'; // Adjust path as necessary
-import teamImage3 from '../Assets/Images/aam.png'; // Adjust path as necessary
-import teamImage4 from '../Assets/Images/am.png'; // Adjust path as necessary
-import teamImage5 from '../Assets/Images/bj.png'; // Adjust path as necessary
-import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+"use client"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import teamImage1 from "../Assets/Images/mb.png"
+import teamImage2 from "../Assets/Images/jm.png"
+import teamImage3 from "../Assets/Images/aam.png"
+import teamImage4 from "../Assets/Images/am.png"
+import teamImage5 from "../Assets/Images/bj.png"
+import { Linkedin, Twitter, ExternalLink } from "lucide-react"
 
 const teamMembers = [
   {
-    name: 'Benjamin Sucoop',
+    name: "Benjamin Sucoop",
+    role: "Team Member",
     image: teamImage5,
-    linkedin: 'https://www.linkedin.com/in/mustapha-mubarak/',
-    twitter: '',
+    linkedin: "https://www.linkedin.com/in/mustapha-mubarak/",
+    twitter: "",
   },
   {
-    name: 'Mubarak Mustapha',
+    name: "Mubarak Mustapha",
+    role: "Founder",
     image: teamImage1,
-    linkedin: 'https://www.linkedin.com/in/mustapha-mubarak/',
-    twitter: 'https://x.com/neuromuby?t=fdp0hyK_auGAal8qcCVDCg&s=09',
+    linkedin: "https://www.linkedin.com/in/mustapha-mubarak/",
+    twitter: "https://x.com/neuromuby?t=fdp0hyK_auGAal8qcCVDCg&s=09",
   },
   {
-    name: 'James Adedoyin',
+    name: "James Adedoyin",
+    role: "Co-Founder",
     image: teamImage2,
-    linkedin: 'https://www.linkedin.com/in/james-adedoyin',
-    twitter: '',
+    linkedin: "https://www.linkedin.com/in/james-adedoyin",
+    twitter: "",
   },
   {
-    name: 'Ameer Alabi',
+    name: "Ameer Alabi",
+    role: "Team Member",
     image: teamImage4,
-    linkedin: 'https://www.linkedin.com/in/ameer-alabi-9bb852287/',
-    twitter: 'https://x.com/Alman_0401',
+    linkedin: "https://www.linkedin.com/in/ameer-alabi-9bb852287/",
+    twitter: "https://x.com/Alman_0401",
   },
   {
-    name: 'AbdulRahman Amzat',
+    name: "AbdulRahman Amzat",
+    role: "Team Member",
     image: teamImage3,
-    linkedin: '',
-    twitter: 'https://x.com/Medic_zat',
+    linkedin: "",
+    twitter: "https://x.com/Medic_zat",
   },
-  // {
-  //   name: 'Jane Smith',
-  //   image: teamImage,
-  //   linkedin: 'https://www.linkedin.com/in/janesmith',
-  //   twitter: 'https://twitter.com/janesmith',
-  // },
-  // {
-  //   name: 'Jane Smith',
-  //   image: teamImage,
-  //   linkedin: 'https://www.linkedin.com/in/janesmith',
-  //   twitter: 'https://twitter.com/janesmith',
-  // },
-  // {
-  //   name: 'Jane Smith',
-  //   image: teamImage,
-  //   linkedin: 'https://www.linkedin.com/in/janesmith',
-  //   twitter: 'https://twitter.com/janesmith',
-  // },
-  // {
-  //   name: 'Jane Smith',
-  //   image: teamImage,
-  //   linkedin: 'https://www.linkedin.com/in/janesmith',
-  //   twitter: 'https://twitter.com/janesmith',
-  // },
-  // Add more team members as needed
-];
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, type: 'spring', stiffness: 100 } },
-};
+]
 
 const Team = () => {
-  // Intersection Observer for Team Section
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.3,
-  });
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  }
 
   return (
-    <div className="py-[50px] px-[20px] md:px-[50px] bg-[#f8f9fa]">
-      <div className="text-center mb-[40px]">
-        <h2 className="text-[28px] md:text-[36px] font-bold mb-[10px]">Meet Our Team</h2>
-        <p className="text-[16px] md:text-[18px] lg:text-[20px] leading-relaxed">
-          Our team is composed of passionate professionals dedicated to delivering the best results. Get to know the faces behind our success.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px]" ref={ref}>
-        {teamMembers.map((member, index) => (
+    <div className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
           <motion.div
-            key={index}
-            className="flex flex-col items-center bg-white p-[20px] rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            variants={cardVariants}
-          >
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-[100px] h-[100px] object-cover rounded-full mb-[15px]"
-            />
-            <h3 className="text-[18px] font-semibold mb-[10px]">{member.name}</h3>
-            <div className="flex space-x-3">
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#0077b5] hover:text-[#005582]">
-                <FaLinkedin size={20} />
-              </a>
-              <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-[#1DA1F2] hover:text-[#0d95e8]">
-                <FaTwitter size={20} />
-              </a>
-            </div>
-          </motion.div>
-        ))}
+            className="w-16 h-1 bg-[#47b8a6] mb-4 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={inView ? { width: 64 } : { width: 0 }}
+            transition={{ duration: 0.6 }}
+          />
+          <h2 className="text-3xl md:text-4xl font-bold text-[#17162c] mb-4">Meet Our Team</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Our team is composed of passionate professionals dedicated to raising awareness about traumatic brain
+            injuries and providing support to those affected.
+          </p>
+        </motion.div>
+
+        <motion.div
+          ref={ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              className="relative group"
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white">
+                {/* Background pattern */}
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-[#17162c] to-[#47b8a6] opacity-10 z-0"></div>
+
+                {/* Member image */}
+                <div className="relative z-10 pt-8 px-6 flex justify-center">
+                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+                    <img
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Member info */}
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-bold text-[#17162c] mb-1">{member.name}</h3>
+                  <p className="text-[#47b8a6] font-medium text-sm mb-4">{member.role}</p>
+
+                  {/* Social links */}
+                  <div className="flex justify-center space-x-4">
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5] hover:bg-[#0077b5] hover:text-white transition-colors duration-300"
+                      >
+                        <Linkedin size={16} />
+                      </a>
+                    )}
+                    {member.twitter && (
+                      <a
+                        href={member.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full bg-[#1DA1F2]/10 flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-colors duration-300"
+                      >
+                        <Twitter size={16} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Hover effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-[#17162c] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end justify-center pb-6"
+                  whileHover={{ opacity: 0.7 }}
+                >
+                  <span className="text-white font-medium flex items-center gap-2">
+                    View Profile <ExternalLink size={14} />
+                  </span>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <p className="text-gray-600 mb-4">Interested in joining our mission?</p>
+          <button className="px-6 py-3 bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 font-medium">
+            Join Our Team
+          </button>
+        </motion.div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Team;
+export default Team
+

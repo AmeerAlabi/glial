@@ -155,10 +155,10 @@ const Events = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <button className="px-8 py-3 bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 flex items-center gap-2 mx-auto">
+          {/* <button className="px-8 py-3 bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 flex items-center gap-2 mx-auto">
             View All Events
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </div>

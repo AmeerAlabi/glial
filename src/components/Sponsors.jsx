@@ -24,7 +24,7 @@ const Partners = () => {
   const partners = [
     { logo: partner1, name: "African Health Initiative" },
     { logo: partner2, name: "Mission Brain Health" },
-    { logo: partner3, name: "Strong Minds Foundation" },
+    { logo: partner3, name: " Kel strong Foundation" },
   ]
 
   return (
@@ -101,9 +101,9 @@ const Partners = () => {
           animate={partnersInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="px-[30px] py-[12px] bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 font-[500]">
-            Become a Partner
-          </button>
+          {/* <button className="px-[30px] py-[12px] bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 font-[500]"> */}
+            {/* Become a Partner
+          </button> */}
         </motion.div>
       </div>
     </motion.div>

@@ -71,13 +71,13 @@ const Footer = () => {
             <p className="text-gray-400 max-w-md">
               Subscribe to our newsletter for updates, news, and exclusive offers.
             </p>
-            <a
+            {/* <a
               href="#top"
               className="inline-flex items-center gap-2 text-[#47b8a6] hover:text-teal-400 transition-colors duration-300"
             >
               <span>Back to Top</span>
               <ArrowUp className="w-4 h-4" />
-            </a>
+            </a> */}
           </motion.div>
 
           {/* Quick Links Section */}

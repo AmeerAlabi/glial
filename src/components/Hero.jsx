@@ -27,9 +27,9 @@ const Hero = () => {
   }, [])
 
   const stats = [
-    { icon: <Brain className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "5.3M", label: "TBI cases annually" },
-    { icon: <Heart className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "176K", label: "Lives impacted" },
-    { icon: <Users className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Community partners" },
+    { icon: <Brain className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "27M", label: "TBI cases annually" },
+    { icon: <Heart className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Lives impacted" },
+    { icon: <Users className="w-8 h-8 sm:w-6 sm:h-6 md:w-8 md:h-8" />, value: "50+", label: "Community Members" },
   ]
 
   const openModal = () => setIsModalOpen(true)

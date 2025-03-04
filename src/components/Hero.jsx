@@ -280,7 +280,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 1.5 }}
             >
               <Award className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
-              <span className="text-xs sm:text-sm font-medium text-white">Top-rated NGO</span>
+              <span className="text-xs sm:text-sm font-medium text-white">NGO</span>
             </motion.div>
 
             <motion.div
@@ -290,7 +290,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 1.7 }}
             >
               <BookOpen className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#47b8a6]" />
-              <span className="text-xs sm:text-sm font-medium text-white">100+ Research Papers</span>
+              <span className="text-xs sm:text-sm font-medium text-white">3+ Outreaches</span>
             </motion.div>
 
             <motion.div

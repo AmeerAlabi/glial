@@ -1,31 +1,31 @@
-"use client"
-import partner1 from "../Assets/Images/afric.png"
-import partner2 from "../Assets/Images/mission.png"
-import partner3 from "../Assets/Images/strong.png"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+"use client";
+import partner1 from "../Assets/Images/afric.png";
+import partner2 from "../Assets/Images/mission.png";
+import partner3 from "../Assets/Images/strong.png";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Partners = () => {
   const { ref: partnersRef, inView: partnersInView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
-  })
+  });
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  }
+  };
 
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8, delay: 0.3 } },
-  }
+  };
 
   const partners = [
     { logo: partner1, name: "African Health Initiative" },
     { logo: partner2, name: "Mission Brain Health" },
     { logo: partner3, name: " Kel strong Foundation" },
-  ]
+  ];
 
   return (
     <motion.div
@@ -33,15 +33,19 @@ const Partners = () => {
       ref={partnersRef}
       initial="hidden"
       animate={partnersInView ? "visible" : "hidden"}
-      variants={fadeIn}
-    >
+      variants={fadeIn}>
       <div className="max-w-[1200px] mx-auto">
-        <motion.div className="flex flex-col items-center justify-center mb-[60px]" variants={fadeInUp}>
+        <motion.div
+          className="flex flex-col items-center justify-center mb-[60px]"
+          variants={fadeInUp}>
           <div className="w-[60px] h-[4px] bg-[#47b8a6] mb-[20px] rounded-full"></div>
-          <h2 className="text-[32px] md:text-[36px] text-[#17162c] font-[700] text-center">Our Valued Partners</h2>
+          <h2 className="text-[32px] md:text-[36px] text-[#17162c] font-[700] text-center">
+            Our Valued Partners
+          </h2>
           <p className="text-[16px] md:text-[18px] text-[#525560] text-center max-w-[600px] mt-[16px]">
-            Collaborating with leading organizations to advance brain health research, education, and support for those
-            affected by traumatic brain injuries.
+            Collaborating with leading organizations to advance brain health
+            research, education, and support for those affected by traumatic
+            brain injuries.
           </p>
         </motion.div>
 
@@ -63,14 +67,13 @@ const Partners = () => {
                   },
                 },
               }}
-              whileHover={{ y: -10 }}
-            >
+              whileHover={{ y: -10 }}>
               <div className="flex flex-col items-center">
                 <div className="w-[200px] h-[100px] flex items-center justify-center mb-[20px]">
                   <motion.img
                     src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain pb-10"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -82,8 +85,7 @@ const Partners = () => {
 
               <motion.div
                 className="w-full h-[3px] mt-[20px] rounded-full overflow-hidden"
-                style={{ background: "#f0f0f0" }}
-              >
+                style={{ background: "#f0f0f0" }}>
                 <motion.div
                   className="h-full bg-[#47b8a6]"
                   initial={{ width: 0 }}
@@ -99,16 +101,14 @@ const Partners = () => {
           className="mt-[60px] text-center"
           initial={{ opacity: 0 }}
           animate={partnersInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
+          transition={{ duration: 0.8, delay: 0.8 }}>
           {/* <button className="px-[30px] py-[12px] bg-[#17162c] text-white rounded-full hover:bg-[#47b8a6] transition-colors duration-300 font-[500]"> */}
-            {/* Become a Partner
+          {/* Become a Partner
           </button> */}
         </motion.div>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Partners
-
+export default Partners;

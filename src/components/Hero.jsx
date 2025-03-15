@@ -60,7 +60,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="relative bg-[url('./Assets/Images/mubaraq.jpg')] overflow-hidden bg-clip-border bg-cover  min-h-screen w-full z-40 flex items-center">
+      className="relative bg-[url('./Assets/Images/mubaraq.jpg')] overflow-hidden bg-clip-border bg-cover bg-blend-overlay bg-[#17162c]/60  min-h-screen w-full z-40 flex items-center">
       {/* Animated background neurons - Reduced count for mobile */}
       <div className="absolute inset-0 opacity-20">
         {Array.from({ length: window.innerWidth < 768 ? 10 : 20 }).map(

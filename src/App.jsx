@@ -8,7 +8,7 @@ import InfographicsSection from './components/Info';
 
 const App = () => {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/infographics" element={<InfographicsSection />} />
         <Route path="*" element={<Home/>} />
       </Routes>
-    </Router>
+      </>
   );
 }
 

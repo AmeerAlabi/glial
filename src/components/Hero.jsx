@@ -39,6 +39,62 @@ const Hero = () => {
 
   return (
     <div ref={ref} className="relative overflow-hidden bg-[#17162c] min-h-screen w-full z-40 flex items-center">
+      {/* SVG Background Pattern */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="neuronPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path
+                d="M50 10 C40 30, 10 30, 10 50 S40 70, 50 90"
+                stroke="#47b8a6"
+                strokeWidth="0.5"
+                fill="none"
+                opacity="0.5"
+              />
+              <path
+                d="M50 10 C60 30, 90 30, 90 50 S60 70, 50 90"
+                stroke="#47b8a6"
+                strokeWidth="0.5"
+                fill="none"
+                opacity="0.5"
+              />
+              <circle cx="50" cy="50" r="2" fill="#47b8a6" opacity="0.6" />
+              <circle cx="50" cy="10" r="1" fill="#47b8a6" opacity="0.4" />
+              <circle cx="50" cy="90" r="1" fill="#47b8a6" opacity="0.4" />
+              <circle cx="10" cy="50" r="1" fill="#47b8a6" opacity="0.4" />
+              <circle cx="90" cy="50" r="1" fill="#47b8a6" opacity="0.4" />
+            </pattern>
+
+            <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+              <stop offset="0%" stopColor="#47b8a6" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#17162c" stopOpacity="0" />
+            </radialGradient>
+
+            <pattern id="hexGrid" width="56" height="100" patternUnits="userSpaceOnUse" patternTransform="scale(3)">
+              <path
+                d="M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100"
+                fill="none"
+                stroke="#47b8a6"
+                strokeWidth="0.2"
+                opacity="0.3"
+              />
+              <path
+                d="M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34"
+                fill="none"
+                stroke="#47b8a6"
+                strokeWidth="0.2"
+                opacity="0.3"
+              />
+            </pattern>
+          </defs>
+
+          <rect x="0" y="0" width="100%" height="100%" fill="#17162c" />
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#neuronPattern)" />
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#bgGradient)" />
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#hexGrid)" />
+        </svg>
+      </div>
+
       {/* Animated background neurons - Reduced count for mobile */}
       <div className="absolute inset-0 opacity-20">
         {Array.from({ length: window.innerWidth < 768 ? 10 : 20 }).map((_, i) => (
@@ -63,6 +119,65 @@ const Hero = () => {
         ))}
       </div>
 
+      {/* Animated connection lines */}
+      <div className="absolute inset-0 opacity-10">
+        {Array.from({ length: 8 }).map((_, i) => {
+          const startX = Math.random() * 100
+          const startY = Math.random() * 100
+          const endX = Math.random() * 100
+          const endY = Math.random() * 100
+
+          return (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute bg-[#47b8a6]"
+              style={{
+                height: "1px",
+                width: "100px",
+                top: `${startY}%`,
+                left: `${startX}%`,
+                transformOrigin: "left center",
+                transform: `rotate(${Math.atan2(endY - startY, endX - startX) * (180 / Math.PI)}deg)`,
+              }}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{
+                duration: 2,
+                delay: i * 0.3,
+                ease: "easeOut",
+              }}
+            />
+          )
+        })}
+      </div>
+
+      {/* Floating orbs */}
+      <div className="absolute inset-0 opacity-20">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute rounded-full bg-[#47b8a6]/30 backdrop-blur-sm"
+            style={{
+              width: `${20 + Math.random() * 40}px`,
+              height: `${20 + Math.random() * 40}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -15, 0],
+              x: [0, Math.random() * 10 - 5, 0],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 5 + Math.random() * 5,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Main content */}
       <div className="relative z-10 container md:px-[50px] px-6 py-0 sm:py-12 md:py-0 lg:py-24 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
@@ -78,7 +193,7 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex  items-center md:mx-0 mx-auto px-2 sm:px-3 py-1 rounded-full bg-[#47b8a6]/10 backdrop-blur-sm border border-[#47b8a6]/20 mb-2 sm:mb-4"
+              className="inline-flex items-center md:mx-0 mx-auto px-2 sm:px-3 py-1 rounded-full bg-[#47b8a6]/10 backdrop-blur-sm border border-[#47b8a6]/20 mb-2 sm:mb-4"
             >
               <span className="w-2 h-2 rounded-full bg-[#47b8a6] mr-2 animate-pulse"></span>
               <span className="text-xs sm:text-sm font-medium text-[#47b8a6]">Advocating for Brain Health</span>
@@ -86,16 +201,17 @@ const Hero = () => {
 
             {/* Main heading with gradient - Responsive font sizes */}
             <h1 className="text-6xl font-bold leading-snug sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-  <span className="block">The Glial</span>
-  <span className="bg-gradient-to-r from-white to-[#47b8a6] bg-clip-text text-transparent">Initiative</span>
-</h1>
+              <span className="block">The Glial</span>
+              <span className="bg-gradient-to-r from-white to-[#47b8a6] bg-clip-text text-transparent">Initiative</span>
+            </h1>
+
             {/* Description with animated underline */}
             <motion.p
-              className="text-[19px] md:mb-0 mb-[20px] md:mt-0 mt-[18px] text-left  sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl"
+              className="text-[19px] md:mb-0 mb-[20px] md:mt-0 mt-[18px] text-left sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              style={{lineHeight: "1.6"}}
+              style={{ lineHeight: "1.6" }}
             >
               Founded by medical students{" "}
               <span className="font-semibold relative">
@@ -190,13 +306,13 @@ const Hero = () => {
               </motion.button>
 
               <motion.button
-                className="relative  h-[40px] overflow-hidden group border-2 border-[#47b8a6] text-[#47b8a6] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                className="relative h-[40px] overflow-hidden group border-2 border-[#47b8a6] text-[#47b8a6] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={openVolunteerModal}
               >
                 <motion.span
-                  className="absolute  inset-0 bg-[#47b8a6]/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute inset-0 bg-[#47b8a6]/10 opacity-0 group-hover:opacity-100 transition-opacity"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "0%" }}
                   transition={{ duration: 0.4 }}
@@ -206,10 +322,10 @@ const Hero = () => {
               </motion.button>
 
               <motion.button
-                className="relative h-[40px]  overflow-hidden group bg-white text-[#17162c] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
+                className="relative h-[40px] overflow-hidden group bg-white text-[#17162c] font-semibold py-1.5 xs:py-2 sm:py-3 px-3 xs:px-4 sm:px-6 rounded-lg shadow-lg flex items-center gap-1.5 sm:gap-2 text-xs xs:text-sm sm:text-base"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => navigate("/infographics")}
+                onClick={() => navigate("/resources")}
               >
                 <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -230,12 +346,23 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="w-full max-w-xs sm:max-w-sm md:max-w-md hidden lg:w-1/2 h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] md:flex items-center justify-center relative mt-4 lg:mt-0"
           >
-            <svg viewBox="0 0 200 200" className="w-full h-full max-w-[200px] xs:max-w-[250px] sm:max-w-[300px] md:max-w-[350px]">
+            <svg
+              viewBox="0 0 200 200"
+              className="w-full h-full max-w-[200px] xs:max-w-[250px] sm:max-w-[300px] md:max-w-[350px]"
+            >
+              <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
               <motion.path
                 d="M100 20 C 80 40, 20 40, 20 100 S 80 160, 100 180"
                 fill="none"
                 stroke="#47b8a6"
                 strokeWidth="4"
+                filter="url(#glow)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
                 transition={{ duration: 2, ease: "easeInOut" }}
@@ -245,6 +372,7 @@ const Hero = () => {
                 fill="none"
                 stroke="#47b8a6"
                 strokeWidth="4"
+                filter="url(#glow)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
                 transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
@@ -254,6 +382,7 @@ const Hero = () => {
                 cy="100"
                 r="10"
                 fill="#47b8a6"
+                filter="url(#glow)"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
@@ -265,9 +394,28 @@ const Hero = () => {
                   cy={100 + 60 * Math.sin((angle * Math.PI) / 180)}
                   r="6"
                   fill="#47b8a6"
+                  filter="url(#glow)"
                   initial={{ scale: 0 }}
                   animate={{ scale: [0, 1.2, 1] }}
                   transition={{ duration: 0.5, delay: 2 + index * 0.1 }}
+                />
+              ))}
+
+              {/* Pulsing effect for nodes */}
+              {[0, 60, 120, 180, 240, 300].map((angle, index) => (
+                <motion.circle
+                  key={`pulse-${index}`}
+                  cx={100 + 60 * Math.cos((angle * Math.PI) / 180)}
+                  cy={100 + 60 * Math.sin((angle * Math.PI) / 180)}
+                  r="6"
+                  fill="#47b8a6"
+                  initial={{ scale: 1, opacity: 0.8 }}
+                  animate={{ scale: 2, opacity: 0 }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    delay: 2.5 + index * 0.2,
+                  }}
                 />
               ))}
             </svg>
@@ -335,3 +483,4 @@ const Hero = () => {
 }
 
 export default Hero
+

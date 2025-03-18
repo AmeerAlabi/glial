@@ -30,6 +30,7 @@ const Navbar = () => {
         <Link to="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</Link>
         <Link to="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</Link>
         <Link to="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</Link>
+        <Link to="/resources" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Resources</Link>
       </div>
 
       {/* Donate Button */}
@@ -51,6 +52,7 @@ const Navbar = () => {
           <Link to="/" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Home</Link>
           <Link to="/about" className="text-[16px] font-medium text-[#17162c] cursor-pointer">About us</Link>
           <Link to="/contact" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Contact</Link>
+          <Link to="/resources" className="text-[16px] font-medium text-[#17162c] cursor-pointer">Resources</Link>
           <div
             className="cursor-pointer w-[115px] h-[43px] rounded-[7px] bg-[#17162c] font-[500] text-white flex justify-center items-center"
             onClick={openModal} // Open modal from mobile donate button

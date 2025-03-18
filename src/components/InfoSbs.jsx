@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaDownload, FaGlobe } from "react-icons/fa";
-import english from '../Assets/Images/tbi-eng.jpg'
+import english from '../Assets/Images/sbs-eng.jpg'
 
 const images = {
   english: english,
@@ -9,7 +9,7 @@ const images = {
   arabic: english,
 };
 
-export default function InfographicsSection() {
+export default function InfographicsSectionSbs() {
   const [language, setLanguage] = useState("english");
 
   return (

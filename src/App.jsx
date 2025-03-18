@@ -5,6 +5,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import InfographicsSection from './components/Info';
+import Resources from './components/Resources';
+import InfographicsSectionSbs from './components/InfoSbs';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -14,9 +17,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/infographics" element={<InfographicsSection />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/tbi" element={<InfographicsSection />} />
+        <Route path="/resources/sbs" element={<InfographicsSectionSbs />} />
         <Route path="*" element={<Home/>} />
       </Routes>
+      <Footer />
       </>
   );
 }

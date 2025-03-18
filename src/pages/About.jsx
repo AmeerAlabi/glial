@@ -84,7 +84,7 @@ const About = () => {
       </motion.div>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

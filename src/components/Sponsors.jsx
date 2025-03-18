@@ -22,8 +22,8 @@ const Partners = () => {
   }
 
   const partners = [
-    { logo: partner1, name: "African Health Initiative" },
-    { logo: partner2, name: "Mission Brain Health" },
+    { logo: partner1, name: "African CDC" },
+    { logo: partner2, name: "Mission Brain (Unilorin)" },
     { logo: partner3, name: " Kel strong Foundation" },
   ]
 
@@ -75,7 +75,7 @@ const Partners = () => {
                     transition={{ duration: 0.3 }}
                   />
                 </div>
-                <h3 className="text-[18px] font-[600] text-[#17162c] text-center group-hover:text-[#47b8a6] transition-colors duration-300">
+                <h3 className="text-[18px] mt-[12px] font-[600] text-[#17162c] text-center group-hover:text-[#47b8a6] transition-colors duration-300">
                   {partner.name}
                 </h3>
               </div>

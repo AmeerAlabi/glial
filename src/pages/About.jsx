@@ -21,10 +21,10 @@ const About = () => {
   const { ref: ctaRef, inView: ctaInView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <div id="about" className="bg-[#f8f8f8]">
+    <div id="about" className="">
       {/* Header Section */}
       <motion.div
-        className="py-10 px-5 md:px-8 lg:px-20"
+        className="py-16 px-5 md:px-8 lg:px-20"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -59,6 +59,9 @@ const About = () => {
       </motion.div>
 
       {/* Achievements Section */}
+      <div className="bg-white">
+        
+      </div>
       <CollaborationsAndEvents />
 
       {/* Team Section */}
@@ -67,7 +70,7 @@ const About = () => {
         initial="hidden"
         animate={teamInView ? 'visible' : 'hidden'}
         variants={sectionVariants}
-        className="mt-8"
+        className="mt-8 bg-white"
       >
         <Team />
       </motion.div>
@@ -78,7 +81,7 @@ const About = () => {
         initial="hidden"
         animate={ctaInView ? 'visible' : 'hidden'}
         variants={sectionVariants}
-        className="mt-8"
+        className="mt-8 bg-white"
       >
         <Cta />
       </motion.div>

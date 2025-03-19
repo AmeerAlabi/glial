@@ -53,7 +53,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer ref={ref} className="bg-gradient-to-b from-gray-900 to-[#17162c] mt-[60px] pt-20 pb-8 text-white">
+    <footer ref={ref} className="bg-gradient-to-b from-gray-900 to-[#17162c]  pt-20 pb-8 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8"
@@ -103,7 +103,7 @@ const Footer = () => {
               <a href="tel:+2348032867430" 
                 className="flex items-center gap-2 text-gray-400 hover:text-[#47b8a6] transition-colors duration-300">
                 <Phone className="w-4 h-4" />
-                <span>+234(0)8032867430</span>
+                <span>+234(0)8068823814 </span>
               </a>
             </div>
           </motion.div>

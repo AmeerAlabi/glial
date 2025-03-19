@@ -45,7 +45,7 @@ const Cta = () => {
   return (
     <motion.div
       ref={ref}
-      className="mx-auto my-[80px] w-[90%] lg:w-[1050px] relative overflow-hidden"
+      className="mx-auto my-[85px]   w-[90%] lg:w-[1050px] relative overflow-hidden"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={textVariant}

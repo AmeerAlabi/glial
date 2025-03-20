@@ -2,10 +2,30 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaDownload, FaGlobe } from "react-icons/fa";
 import english from '../Assets/Images/tbi-eng.jpg'
+import yoruba from '../Assets/Images/tbi-yrb.jpg'
+import igbo from '../Assets/Images/tbi-igb.jpg'
+import hausa from '../Assets/Images/tbi-hs.jpg'
+import luganda from '../Assets/Images/tbi-lug.jpg'
+import swahili from '../Assets/Images/tbi-swa.jpg'
+import Kinyarwanda from '../Assets/Images/tbi-kin.jpg'
+import french from '../Assets/Images/tbi-fr.jpg'
+import amharic from '../Assets/Images/tbi-am.jpg'
+import bemba from '../Assets/Images/tbi-bem.jpg'
+import chichewa from '../Assets/Images/tbi-ch.png'
+
 
 const images = {
   english: english,
-  yoruba: english,
+  yoruba: yoruba,
+  igbo: igbo,
+  hausa: hausa,
+luganda: luganda,
+swahili: swahili,
+Kinyarwanda: Kinyarwanda,
+french: french,
+amharic: amharic,
+bemba: bemba,
+  chichewa: chichewa,
   arabic: english,
 };
 
@@ -34,7 +54,15 @@ export default function InfographicsSection() {
         >
           <option value="english">English</option>
           <option value="yoruba">Yoruba</option>
-          <option value="arabic">Arabic</option>
+          <option value="igbo">Igbo</option>
+          <option value="hausa">Hausa</option>
+          <option value="luganda">Luganda</option>
+          <option value="swahili">Swahili</option>
+          <option value="kinyarwanda">Kinyarwanda</option>
+          <option value="french">French</option>
+          <option value="amharic">Amharic</option>
+          <option value="bemba">Bemba</option>
+          <option value="chichewa">Chichewa/Cinyanja</option>
         </select>
       </div>
 

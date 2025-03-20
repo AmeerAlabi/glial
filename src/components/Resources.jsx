@@ -18,6 +18,7 @@ import {
 import { useNavigate } from "react-router-dom"
 import english from "../Assets/Images/tbi-eng.jpg"
 import englishsbs from "../Assets/Images/sbs-eng.jpg"
+import selfie from "../Assets/Images/selfie.jpg"
 
 const Resources = () => {
   const { ref, inView } = useInView({
@@ -52,35 +53,35 @@ const Resources = () => {
 
   const solutions = [
     {
-      title: "TBI Mobile App",
+      title: "Selfie Screen",
       description:
-        "Our mobile application provides real-time tracking of symptoms, medication reminders, and educational resources for TBI patients and caregivers.",
+        "A selfie screen is like a magic mirror that looks at your face and tells if you are feeling good or not. It can help doctors see if you have a fever, a rash, or if you are sad—just by looking at your face! It’s like a smart camera that helps keep people healthy.It can be used in telemedicine, dermatology, neurology, and mental health tracking, helping doctors and patients interact more efficiently without needing physical contact.",
       icon: <Smartphone className="w-8 h-8 text-[#47b8a6]" />,
-      image: "/placeholder.svg?height=600&width=300", // Replace with actual screenshot
+      image: selfie, // Replace with actual screenshot
       link: "/solutions/mobile-app",
       color: "#47b8a6",
       comingSoon: true,
     },
-    {
-      title: "Caregiver Dashboard",
-      description:
-        "A comprehensive web dashboard that helps caregivers monitor patient progress, access treatment plans, and coordinate with healthcare providers.",
-      icon: <Monitor className="w-8 h-8 text-[#47b8a6]" />,
-      image: "/placeholder.svg?height=600&width=800", // Replace with actual screenshot
-      link: "/solutions/caregiver-dashboard",
-      color: "#47b8a6",
-      comingSoon: true,
-    },
-    {
-      title: "Healthcare Provider Portal",
-      description:
-        "Specialized tools for healthcare professionals to track patient outcomes, share resources, and collaborate on treatment strategies for TBI patients.",
-      icon: <Laptop className="w-8 h-8 text-[#47b8a6]" />,
-      image: "/placeholder.svg?height=600&width=800", // Replace with actual screenshot
-      link: "/solutions/provider-portal",
-      color: "#47b8a6",
-      comingSoon: true,
-    },
+    // {
+    //   title: "Caregiver Dashboard",
+    //   description:
+    //     "A comprehensive web dashboard that helps caregivers monitor patient progress, access treatment plans, and coordinate with healthcare providers.",
+    //   icon: <Monitor className="w-8 h-8 text-[#47b8a6]" />,
+    //   image: "/placeholder.svg?height=600&width=800", // Replace with actual screenshot
+    //   link: "/solutions/caregiver-dashboard",
+    //   color: "#47b8a6",
+    //   comingSoon: true,
+    // },
+    // {
+    //   title: "Healthcare Provider Portal",
+    //   description:
+    //     "Specialized tools for healthcare professionals to track patient outcomes, share resources, and collaborate on treatment strategies for TBI patients.",
+    //   icon: <Laptop className="w-8 h-8 text-[#47b8a6]" />,
+    //   image: "/placeholder.svg?height=600&width=800", // Replace with actual screenshot
+    //   link: "/solutions/provider-portal",
+    //   color: "#47b8a6",
+    //   comingSoon: true,
+    // },
   ]
 
   const containerVariants = {

@@ -1,0 +1,51 @@
+{
+  "collaborations": [
+    {
+      "slug": "neuro-emerge-africa",
+      "name": "NEURO-EMERGE AFRICA",
+      "shortName": "NEA",
+      "partner": "FAMSA Health Systems Strengthening Technical Working Group (HSS TWG)",
+      "summary": "A joint youth platform with FAMSA's Health Systems Strengthening Technical Working Group, focused on youth-driven solutions for emergency and neurotrauma care in Africa.",
+      "status": "active",
+      "since": "September 2026",
+      "logo": "",
+      "body": "NEURO-EMERGE AFRICA was set up under the FAMSA Health Systems Strengthening Technical Working Group to build a lasting Pan-African community of young people who can contribute to emergency and neurotrauma care.\n\nThe Glial Initiative supported the platform through its foundation phase. Our identity appeared across the inaugural programme's publicity, and our leadership and networks helped bring a multidisciplinary group of speakers and experts into the programme.\n\nThe inaugural Youth Co-Creation Webinar, \"Saving Brains by Strengthening Systems: Youth Co-Creating Solutions for Emergency and Neurotrauma Care in Africa\", brought young people together with professionals working on pre-hospital care, triage and referral, financing, injury data, prevention, digital innovation and policy.\n\nThe partnership is built around a community, not a single event. The next phase connects members to training and opportunities, strengthens research and evidence generation, and supports practical initiatives for stronger emergency and neurotrauma systems across Africa.",
+      "stats": [
+        { "value": "~150", "label": "participants on Day 1 of the inaugural webinar" },
+        { "value": "1,000+", "label": "members in the NEA WhatsApp community" },
+        { "value": "All", "label": "regions of Africa with NEA Ambassadors" },
+        { "value": "400+", "label": "followers across Instagram, X, LinkedIn and YouTube" }
+      ],
+      "media": [],
+      "link": ""
+    },
+    {
+      "slug": "lucid",
+      "name": "Lucid",
+      "shortName": "",
+      "partner": "",
+      "summary": "A partnership with the Lucid team to adapt and pilot their phone-based AI head-injury triage tool for the Nigerian context.",
+      "status": "active",
+      "since": "",
+      "logo": "",
+      "body": "Lucid is a phone-based, AI-assisted tool that helps triage head injuries. We are working with the Lucid team to adapt the technology for the Nigerian context and to plan a pilot.\n\nThe collaboration supports our Innovation & Digital Health pillar: scalable, low-cost technology that helps people recognise serious head injuries early and seek care.",
+      "stats": [],
+      "media": [],
+      "link": ""
+    },
+    {
+      "slug": "cranioguard-mission",
+      "name": "CranioGuard Mission",
+      "shortName": "",
+      "partner": "mission:BRAIN Foundation",
+      "summary": "Our road-safety and helmet programme, run in collaboration with the mission:BRAIN Foundation.",
+      "status": "coming-soon",
+      "since": "",
+      "logo": "",
+      "body": "",
+      "stats": [],
+      "media": [],
+      "link": ""
+    }
+  ]
+}

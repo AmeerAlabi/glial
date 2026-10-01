@@ -1,0 +1,32 @@
+{
+  "topics": [
+    {
+      "slug": "tbi",
+      "title": "Traumatic Brain Injury (TBI)",
+      "summary": "What TBI is, its common causes, the problems it can cause, and how to prevent it.",
+      "description": "A traumatic brain injury usually results from a violent blow or jolt to the head or body. Falls, road traffic collisions, violence and sports are common causes. This infographic explains the warning signs and the everyday steps that prevent injury.",
+      "infographics": [
+        { "language": "English", "code": "en", "file": "/images/resources/tbi-english.jpg" },
+        { "language": "Yoruba", "code": "yo", "file": "/images/resources/tbi-yoruba.jpg" },
+        { "language": "Igbo", "code": "ig", "file": "/images/resources/tbi-igbo.jpg" },
+        { "language": "Hausa", "code": "ha", "file": "/images/resources/tbi-hausa.jpg" },
+        { "language": "Swahili", "code": "sw", "file": "/images/resources/tbi-swahili.jpg" },
+        { "language": "Luganda", "code": "lg", "file": "/images/resources/tbi-luganda.jpg" },
+        { "language": "Kinyarwanda", "code": "rw", "file": "/images/resources/tbi-kinyarwanda.jpg" },
+        { "language": "Amharic", "code": "am", "file": "/images/resources/tbi-amharic.jpg" },
+        { "language": "Bemba", "code": "bem", "file": "/images/resources/tbi-bemba.jpg" },
+        { "language": "Chichewa / Cinyanja", "code": "ny", "file": "/images/resources/tbi-chichewa.png" },
+        { "language": "French", "code": "fr", "file": "/images/resources/tbi-french.jpg" }
+      ]
+    },
+    {
+      "slug": "shaken-baby-syndrome",
+      "title": "Shaken Baby Syndrome",
+      "summary": "The causes, signs and prevention of abusive head trauma in infants.",
+      "description": "Shaken Baby Syndrome is a serious brain injury caused by forcefully shaking an infant. It can cause permanent disability or death, and it is preventable. This infographic is for parents, caregivers and anyone who looks after babies.",
+      "infographics": [
+        { "language": "English", "code": "en", "file": "/images/resources/sbs-english.jpg" }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,123 @@
+@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/source-sans-3';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 8rem; /* keep anchored headings clear of the sticky header */
+  }
+  /* Text-size options set by the accessibility menu */
+  html[data-text-size='large'] { font-size: 112.5%; }
+  html[data-text-size='larger'] { font-size: 125%; }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  @media (min-width: 768px) {
+    body { font-size: 1.125rem; }
+  }
+
+  h1, h2, h3, h4 { @apply text-ink; }
+
+  a { @apply text-teal-600 underline decoration-1 underline-offset-[3px] hover:text-teal-700; }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.teal.600');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible { outline-color: theme('colors.teal.400'); }
+
+  ::selection { background: theme('colors.teal.100'); }
+
+  /* High-contrast option set by the accessibility menu */
+  html[data-contrast='high'] .text-ink-muted,
+  html[data-contrast='high'] .text-ink-subtle { color: #17162c; }
+  html[data-contrast='high'] .border-line { border-color: #6b7080; }
+  html[data-contrast='high'] a { text-decoration-thickness: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Layout */
+  .container-page { @apply mx-auto w-full max-w-content px-5 sm:px-8; }
+  .section { @apply py-16 md:py-24; }
+  .section-tight { @apply py-12 md:py-16; }
+
+  /* Type scale */
+  .t-display {
+    @apply font-serif font-semibold text-ink;
+    font-size: clamp(2.375rem, 1.6rem + 2.6vw, 3.375rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .t-h1 {
+    @apply font-serif font-semibold text-ink;
+    font-size: clamp(2.125rem, 1.6rem + 1.9vw, 2.875rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .t-h2 {
+    @apply font-serif font-semibold text-ink;
+    font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .t-h3 { @apply font-sans text-xl font-semibold leading-snug text-ink md:text-2xl; }
+  .t-h4 { @apply font-sans text-lg font-semibold leading-snug text-ink md:text-xl; }
+  .t-lead { @apply text-lg leading-relaxed text-ink-muted md:text-xl; }
+  .t-body { @apply text-ink-muted; }
+  .t-small { @apply text-[0.9375rem] leading-normal text-ink-muted; }
+  .t-eyebrow {
+    @apply font-sans text-[0.8125rem] font-semibold uppercase text-teal-600;
+    letter-spacing: 0.08em;
+  }
+
+  /* Long-form text */
+  .prose-glial { @apply max-w-prose text-ink-muted; }
+  .prose-glial > * + * { @apply mt-5; }
+  .prose-glial h2 { @apply t-h3 mt-10; }
+  .prose-glial h3 { @apply t-h4 mt-8; }
+  .prose-glial ul { @apply list-disc space-y-2 pl-5; }
+  .prose-glial strong { @apply font-semibold text-ink; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded px-5 py-2.5 text-base font-semibold no-underline transition-colors duration-150;
+  }
+  .btn:disabled { @apply cursor-not-allowed opacity-60; }
+  .btn-primary { @apply btn bg-teal-600 text-white hover:bg-teal-700 hover:text-white; }
+  .btn-secondary { @apply btn border-[1.5px] border-navy bg-white text-navy hover:bg-navy hover:text-white; }
+  .btn-on-dark { @apply btn bg-teal-400 text-navy hover:bg-white hover:text-navy; }
+  .btn-outline-on-dark { @apply btn border-[1.5px] border-white/70 text-white hover:bg-white hover:text-navy; }
+  .btn-sm { @apply min-h-[2.5rem] px-4 py-2 text-[0.9375rem]; }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-semibold text-teal-600 no-underline hover:text-teal-700 hover:underline;
+  }
+
+  /* Cards and badges */
+  .card { @apply rounded-lg border border-line bg-white; }
+  .badge { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.8125rem] font-semibold; }
+
+  /* Forms */
+  .field-label { @apply mb-1.5 block text-[0.9375rem] font-semibold text-ink; }
+  .field-input {
+    @apply block w-full rounded border border-[#b9bec7] bg-white px-3.5 py-2.5 text-base text-ink placeholder:text-ink-subtle;
+  }
+  .field-input:focus { @apply border-teal-600 outline-none ring-2 ring-teal-600/30; }
+  .field-hint { @apply mt-1.5 text-sm text-ink-subtle; }
+}

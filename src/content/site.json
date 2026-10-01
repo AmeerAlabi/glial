@@ -1,0 +1,24 @@
+{
+  "name": "The Glial Initiative",
+  "tagline": "Advancing neurotrauma prevention, care and recovery across Africa.",
+  "email": "theglialinitiative@gmail.com",
+  "phone": "",
+  "location": "Ilorin, Kwara State, Nigeria",
+  "social": {
+    "instagram": "https://www.instagram.com/theglialinitiative",
+    "x": "https://x.com/GlialInitiative",
+    "linkedin": "https://www.linkedin.com/company/theglialinitiative"
+  },
+  "forms": {
+    "formspreeEndpoint": "https://formspree.io/f/mzzpwyrl"
+  },
+  "newsletter": {
+    "substackUrl": ""
+  },
+  "donation": {
+    "bankName": "",
+    "accountName": "",
+    "accountNumber": "",
+    "note": "Please email us after giving so we can thank you and send a receipt."
+  }
+}

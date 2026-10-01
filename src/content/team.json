@@ -1,0 +1,148 @@
+{
+  "members": [
+    {
+      "name": "Mubarak Jolayemi Mustapha",
+      "role": "Executive Director",
+      "group": "executive",
+      "photo": "/images/team/mubarak-mustapha.jpg",
+      "bio": "Co-founder. Leads the organisation's strategy, partnerships and representation nationally and internationally. Also convener of NEURO-EMERGE AFRICA.",
+      "linkedin": "https://www.linkedin.com/in/mustapha-mubarak/",
+      "x": "https://x.com/neuromuby"
+    },
+    {
+      "name": "Adedoyin James",
+      "role": "Deputy Executive Director",
+      "group": "executive",
+      "photo": "/images/team/adedoyin-james.jpg",
+      "bio": "Co-founder. Coordinates operations across departments and leads the Training & Capacity Building Unit.",
+      "linkedin": "https://www.linkedin.com/in/james-adedoyin",
+      "x": ""
+    },
+    {
+      "name": "Ajao Amirah",
+      "role": "Executive Secretary",
+      "group": "executive",
+      "photo": "",
+      "bio": "Provides administrative and governance support across the Board, Advisory Board and Executive Team.",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Godswill Uzoechinna",
+      "role": "Research & Academic Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Collins Lemashon",
+      "role": "Research & Academic Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Awoniyi Aisha",
+      "role": "Public Health & Community Outreach Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Kareem Ameenat",
+      "role": "Public Health & Community Outreach Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Abdurrahman Ayinde",
+      "role": "Innovation & Development Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Abdurrazaq Adisa",
+      "role": "Innovation & Development Unit",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Hamzat",
+      "role": "Communications & Media",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Yunus Ashafa",
+      "role": "Communications & Media",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Hassan Bamigboye",
+      "role": "Finance & Resource Mobilisation",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Habeeb",
+      "role": "Monitoring, Evaluation & Learning",
+      "group": "leads",
+      "photo": "",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    },
+    {
+      "name": "Ameer Alabi",
+      "role": "Team Member",
+      "group": "team",
+      "photo": "/images/team/ameer-alabi.jpg",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/ameer-alabi-9bb852287/",
+      "x": "https://x.com/Alman_0401"
+    },
+    {
+      "name": "AbdulRahman Amzat",
+      "role": "Team Member",
+      "group": "team",
+      "photo": "/images/team/abdulrahman-amzat.jpg",
+      "bio": "",
+      "linkedin": "",
+      "x": "https://x.com/Medic_zat"
+    },
+    {
+      "name": "Benjamin Succop",
+      "role": "Team Member",
+      "group": "team",
+      "photo": "/images/team/benjamin-succop.jpg",
+      "bio": "",
+      "linkedin": "",
+      "x": ""
+    }
+  ]
+}

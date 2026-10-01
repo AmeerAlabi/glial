@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "slug": "neuro-emerge-africa-inaugural-webinar",
+      "title": "NEURO-EMERGE AFRICA Youth Co-Creation Webinar",
+      "type": "Webinar",
+      "start": "2026-09-01",
+      "end": "",
+      "datePrecision": "month",
+      "timezone": "WAT",
+      "mode": "online",
+      "location": "Online",
+      "joinUrl": "",
+      "registrationUrl": "",
+      "rsvp": false,
+      "summary": "\"Saving Brains by Strengthening Systems: Youth Co-Creating Solutions for Emergency and Neurotrauma Care in Africa\", the inaugural programme of NEURO-EMERGE AFRICA.",
+      "description": "Young people and experts examined emergency and neurotrauma care from clinical, systems, research, advocacy, financing, innovation and policy perspectives. Close to 150 participants joined on Day 1. Hosted and moderated by Mubarak Jolayemi Mustapha.",
+      "speakers": "Dimeji Olawuyi, Muhammad Isa Jaafar, Dr. Almas Khattak, Dr. Ikpeme Neto, Dr. Joseph Bonney, Dr. Ibukun Tunde-Oni, Dr. Muziwakhe Khumalo, April Sabangan, Dr. Oluwamayowa Opara, Dr. Joshua Aluga-Gideon",
+      "image": ""
+    },
+    {
+      "slug": "world-tbi-day-webinar-2025",
+      "title": "World TBI Day 2025 Webinar",
+      "type": "Webinar",
+      "start": "2025-03-21T11:00",
+      "end": "2025-03-21T16:00",
+      "datePrecision": "day",
+      "timezone": "WAT",
+      "mode": "online",
+      "location": "Zoom",
+      "joinUrl": "",
+      "registrationUrl": "",
+      "rsvp": false,
+      "summary": "\"Preventing and Managing Traumatic Brain Injury (TBI): A Collective Responsibility\", a live webinar for World TBI Day.",
+      "description": "A cross-border conversation between clinicians, researchers, policy experts, survivors and advocates on preventing TBI and improving early recognition and management. More than 50 participants from several countries took part.",
+      "speakers": "Dr. Kee Park (WHO Expert Advisory Panel on Surgical Care), Dr. Adelard Kakunze (Africa CDC, NCDs, Injuries & Mental Health), Dr. B. S. Succop Jr. (Neurosurgery resident, Duke University), Dr. K. Abraham Ojifinni (Consultant Emergency Medicine Physician), Dr. Owagbemi (Neurosurgeon, RNZ Clinic), Dr. Makinde Ayanda (Psychiatrist), Dr. Y. C. H. Dokponou (Neurosurgeon, Young CAANS Research Lead), Keulaba Mabatah (Severe TBI survivor, Founder of Kei Strong Foundation)",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "entries": [
+    {
+      "slug": "cranioguard-mission-2",
+      "title": "CranioGuard Mission 2.0",
+      "category": "Road safety",
+      "date": "2025-06-01",
+      "datePrecision": "month",
+      "location": "Six locations across Kwara State, Nigeria",
+      "summary": "The second edition took helmet and road-safety education to six strategic locations across Kwara State, delivered in local languages.",
+      "body": "CGM 2.0 widened the programme's reach and format. Alongside safety education, we held economic dialogues with riders on how head injuries affect families and livelihoods, and used their feedback to shape the sessions. Training was delivered in local languages so that every rider could take part.",
+      "highlights": ["6 locations across Kwara State", "Training in local languages", "Economic dialogue on the cost of head injury"],
+      "partners": "mission:BRAIN University of Ilorin",
+      "photos": []
+    },
+    {
+      "slug": "world-tbi-day-2025",
+      "title": "World TBI Day 2025 campaign and translation drive",
+      "category": "Campaign",
+      "date": "2025-03-21",
+      "datePrecision": "day",
+      "location": "Online",
+      "summary": "A multilingual awareness campaign and live webinar on the theme \"Preventing and Managing Traumatic Brain Injury: A Collective Responsibility\".",
+      "body": "In the weeks before World TBI Day we ran educational infographics on prevention and emergency response, and a registration drive that drew participants locally and internationally. A call for volunteer translators adapted our materials into more than 20 African languages, so the messages could reach low-literacy and non-English-speaking audiences. The campaign ended in a live webinar with clinicians, researchers, policy experts and a TBI survivor.",
+      "highlights": ["Materials translated into 20+ African languages", "50+ webinar participants from several countries", "Speakers from WHO's surgical care advisory panel and Africa CDC"],
+      "partners": "",
+      "photos": []
+    },
+    {
+      "slug": "cobes-2",
+      "title": "COBES 2.0: Migraine and stroke awareness",
+      "category": "Community health",
+      "date": "2025-01-01",
+      "datePrecision": "month",
+      "location": "Five rural communities, Nigeria",
+      "summary": "Families in five rural communities learned to recognise migraine and the warning signs of stroke, and how to act quickly.",
+      "body": "As part of the Community Based Experience & Services (COBES) programme, we used placards in the local language to make the sessions easy to follow, covering how to identify migraine headaches and the signs of stroke, and when to seek urgent care.",
+      "highlights": ["5 rural communities", "Placards in the local language", "Stroke recognition (F.A.S.T.)"],
+      "partners": "mission:BRAIN University of Ilorin",
+      "photos": []
+    },
+    {
+      "slug": "cobes-1",
+      "title": "COBES 1.0: Febrile seizure awareness",
+      "category": "Community health",
+      "date": "2024-02-01",
+      "datePrecision": "month",
+      "location": "Six rural communities, Nigeria",
+      "summary": "Interactive group sessions in six rural communities gave families practical knowledge on recognising and responding to febrile seizures.",
+      "body": "Working with mission:BRAIN Ilorin through the Community Based Experience & Services (COBES) programme, we used visual aids and simplified local-language materials so that caregivers could recognise febrile seizures early and respond safely.",
+      "highlights": ["6 rural communities", "Visual aids and local-language materials"],
+      "partners": "mission:BRAIN University of Ilorin",
+      "photos": []
+    },
+    {
+      "slug": "cranioguard-mission-1",
+      "title": "CranioGuard Mission 1.0",
+      "category": "Road safety",
+      "date": "2024-01-01",
+      "datePrecision": "month",
+      "location": "Ilorin, Kwara State, Nigeria",
+      "summary": "Over 80 commercial motorcycle riders in Ilorin were trained on safe riding and head protection, and received free helmets.",
+      "body": "The first CranioGuard Mission focused on helmet education for motorcyclists, and on market traders who depend on them. Riders learned safe-riding practices and why head protection matters in preventing traumatic brain and spinal injuries. Each participant also received a free helmet, tackling both the knowledge gap and the cost barrier.",
+      "highlights": ["80+ riders trained", "Free helmets distributed", "Market outreach to traders"],
+      "partners": "mission:BRAIN University of Ilorin",
+      "photos": [
+        { "src": "/images/outreach/cgm-1-group.jpg", "alt": "Glial Initiative and mission:BRAIN volunteers with riders holding road-safety placards on a street in Ilorin", "caption": "Volunteers and riders at CranioGuard Mission 1.0, Ilorin." },
+        { "src": "/images/outreach/cgm-1-helmet-fitting.jpg", "alt": "A volunteer in a red cap helps a man try on a motorcycle helmet at a busy market", "caption": "Fitting a free helmet at the market." },
+        { "src": "/images/outreach/cgm-1-flyer.jpg", "alt": "Close-up of a CranioGuard flyer reading \"Eyes on the road, not the phone\"", "caption": "Road-safety flyers co-branded with mission:BRAIN." },
+        { "src": "/images/outreach/cgm-1-yoruba-placard.jpg", "alt": "A boy at the market holds up a Yoruba-language placard telling riders to always wear a helmet", "caption": "A Yoruba-language placard on helmet use." }
+      ]
+    }
+  ]
+}
